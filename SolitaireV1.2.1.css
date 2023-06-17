@@ -154,6 +154,7 @@ body {
 }
 
 .textBoxes {
+  font-size: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
