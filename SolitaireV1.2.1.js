@@ -1024,7 +1024,7 @@ undoButton.addEventListener('click', () => {
   soundUndo.play();
   if (logs[logs.length - 1].actionType === 'moveCard' || logs[logs.length - 1].actionType === 'moveAndZoomCard' || logs[logs.length - 1].actionType === 'moveAndGlowCard') {
     const lastCardId = logs[logs.length - 1].cardId;
-    const filteredLogs = logs.filter(log => log.cardId === lastCardId);
+    const filteredLogs = logs.filter(log => log.cardId === lastCardId && (log.actionType === 'moveCard' || log.actionType === 'moveAndZoomCard' || log.actionType === 'moveAndGlowCard'));
     if (filteredLogs.length === 1) {
       window.scrollTo(0, 0);
       const undoZoneId = 'zone25'; // 実際のDOM要素のIDを指定する
