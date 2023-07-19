@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang='jp'>
+<head>
+  <meta charset='utf-8' name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
+  <link rel='stylesheet' href='SolitaireV1.2.7.toshow.css'>
+  <title>遊戯王ソリティア簡易作成ツール</title>
+</head>
+<body>
+  <div id='lifePointBoxBoard'>
+    <div id='myBox'>
+      <div id='myLifePointBox' class='lifePointBoxes'></div>
+      <div id='myLifePointSave'>
+        保存
+      </div>
+    </div>
+    <div id='opponentBox'>
+      <div id='opponentLifePointBox' class='lifePointBoxes'></div>
+      <div id='opponentLifePointSave'>
+        保存
+      </div>
+    </div>
+  </div>
+  <div id='zoneBoard'></div>
+  <div id='commentBoard'>
+    <textarea id='commentArea'></textarea>
+    <button id='saveCommentButton'>
+      一時メモ
+    </button>
+  </div>
+  <div id='attentionBoard'>
+    <textarea id='attentionArea'></textarea>
+    <button id='saveAttentionButton'>永続メモ</button>
+  </div>
+  <div id='actionBoard'>
+    <div id='action0FaceupZoom' class='actions'>
+      ns/ss
+    </div>
+    <div id='action90FaceupZoom' class='actions'>
+      ns/ss
+    </div>
+    <div id='action180FaceupZoom' class='actions'>
+      ns/ss
+    </div>
+    <div id='action0FacedownZoom' class='actions'>
+      ns/ss
+    </div>
+    <div id='action90FacedownZoom' class='actions'>
+      ns/ss
+    </div>
+    <div id='action180FacedownZoom' class='actions'>
+      ns/ss
+    </div>
+    <div id='actionActivateEffect' class='actions'>
+      効果発動
+    </div>
+    <div id='action0FaceupMove' class='actions'>
+      移動
+    </div>
+    <div id='action90FaceupMove' class='actions'>
+      移動
+    </div>
+    <div id='action180FaceupMove' class='actions'>
+      移動
+    </div>
+    <div id='action0FacedownMove' class='actions'>
+      移動
+    </div>
+    <div id='action90FacedownMove' class='actions'>
+      移動
+    </div>
+    <div id='action180FacedownMove' class='actions'>
+      移動
+    </div>
+    <div id='actionMoveGlow' class='actions'>
+      カード発動
+    </div>
+  </div>
+  <div id='searchBoard'>
+    <label for='themeSelect'>使いたいテーマを選ぶ： </label>
+    <select id='themeSelect'>
+      <option value='none'>（選択）</option>
+      <option value='default'>デフォルト</option>
+      <option value='crystalBeast'>宝玉獣</option>
+      <option value='infernobleIgKnight'>イグナイト・焔聖騎士</option>
+      <option value='lunaLight'>月光RR</option>
+      <option value='spyral'>SPYRAL</option>
+      <option value='Floowandereeze'>ふわんだりぃず</option>
+      <option value='sixSamurai'>六武衆</option>
+      <option value='abyssActor'>魔界劇団</option>
+      <option value='magician'>EMオッドアイズ魔術師</option>
+      <option value='mekkKnight'>機界騎士</option>
+      <option value='rokket'>ヴァレット</option>
+    </select>
+    <span>&nbsp;&nbsp;</span>
+    <span>&nbsp;&nbsp;</span>
+    <span>&nbsp;&nbsp;</span>
+    <input id='inputTextBox' class='searchItems'>
+    <button id='searchButton' class='searchItems'>検索</button>
+  </div>
+  <div id='cardBoard'>
+  </div>
+  <div id='textBoxBoard'>
+    <textarea id='saveTextBox' class='textBoxes' placeholder='カード等の操作をするとここにログが記録されます（クリックすると自動コピー）'></textarea>
+    <button id='undoButton'>一手戻して最後のログ削除</button>
+    <span>&nbsp;&nbsp;</span>
+    <span>&nbsp;&nbsp;</span>
+    <textarea id='loadTextBox' class='textBoxes' placeholder='記録されたログをここに貼り付けて再生できます'></textarea>
+    <button id='loadLogButton'>再生</button>
+  </div>
+  <footer>
+    <p>
+      @aBhs1hpE9cVWYSW 2023.07.18 <a href='https://twitter.com/aBhs1hpE9cVWYSW/status/1674781110121926657'>解説</a>  <a href='https://github.com/mirayugioh'>ソースコード</a>
+    </p>
+  </footer>
+  <script src='SolitaireV1.2.7.toshow.js'></script>
+</body>
+</html>
