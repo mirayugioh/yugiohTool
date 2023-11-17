@@ -1,6 +1,6 @@
 //APIキー
-const apiKey = 'sample'; // ★APIキーを設定する
-const searchEngineId = 'sample'; // ★検索エンジンIDを設定
+const apiKey = 'あ'; // ★APIキーを設定する
+const searchEngineId = 'あ'; // ★検索エンジンIDを設定
 //デフォルト背景などのカスタマイズ要素
 const defaultProtectorUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1yk8LICiBA47bLzbx4B9GIgqb_b2ACfcfLQ&usqp=CAU';
 const defaultBackgroundUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOIniS7XLImZPYWtQWq9o4xQiAme6WXLHv1w&usqp=CAU';
@@ -52,7 +52,7 @@ let reversedCardUrl = null;
 let backgroundUrl = null;
 //読み込み時、戻るボタンを無効化する
 window.history.pushState(null, null, null);
-window.addEventListener('popstate', ()=> {
+window.addEventListener('popstate', () => {
   window.history.pushState(null, null, null);
   alert('誤操作防止のため、戻る機能は無効化されています。閉じるボタン等をご使用ください。');
   return;
@@ -191,6 +191,9 @@ themeSelect.addEventListener('change', () => {
   const message = 'テーマを変更すると、それまでに呼び出したカードやログは無くなります。よろしいですか？';
   const confirmed = window.confirm(message);
   if (!confirmed) return;
+  document.querySelectorAll('.cards').forEach(card => {
+    card.style.opacity = 0;
+  });
   const selectedOption = document.getElementById('themeSelect').value;
   const typeOrder = {
     no: 1,
@@ -889,6 +892,16 @@ themeSelect.addEventListener('change', () => {
         createCardElement('card47', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPBBzr_NsD6wD12fRGEr5hKHd3RUyP5Z1tGg&usqp=CAU', 'ef');
         createCardElement('card48', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMUh1WRFba2WSDXPa3F57Qt53BPHCGG03TDg&usqp=CAU', 'sp');
         createCardElement('card49', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwB-veL7vbPiowIEvdWVE6I-MJ0V3l8608HA&usqp=CAU', 'ef');
+        createCardElement('card50', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfz5fxeBkK_GDOrN0XxNbfvqbNvEzoVYylzw&usqp=CAU', 'li');
+        createCardElement('card51', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBWZ8x1MhMXw45wO4H69HyM89Xeld1-BjB2A&usqp=CAU', 'li');
+        createCardElement('card52', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ73bN-M-EJ-wIMY9QZCl6hVspwF9w_cnfLzw&usqp=CAU', 'li');
+        createCardElement('card53', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkvtQqMhiLQt7Rr3KgkpCmsLAbV4k36ktcxQ&usqp=CAU', 'li');
+        createCardElement('card54', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_LJs0iXgsXpQxOQQ_os1icl5exww9C7X0-g&usqp=CAU', 'li');
+        createCardElement('card55', 'https://ms.yugipedia.com//thumb/b/b1/CodeofSoul-QCDB-JP-OP.png/300px-CodeofSoul-QCDB-JP-OP.png', 'ef');
+        createCardElement('card56', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnsHapVHvjlIFRIZG2EIMmgzaTI11p2kVapA&usqp=CAU', 'ef');
+        createCardElement('card57', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOghUzobpxBqpjfyIUGVGao0nWRwl5HKkvtQ&usqp=CAU', 'li');
+        createCardElement('card58', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9D06n9LqLm_GQHRiKW2182um7zqKSwze2Ug&usqp=CAU', 'sy');
+        createCardElement('card59', 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRI8KQcWHGcJroE9iM6vCzKScmLphaIbNm3Lv-i5fTHJuPKhs0nXuC4sAkkmkHHODMiYbEAptI97-0l5n4AOgiBeoGy7CWRa4gkyT4RjbHQOWPMOV3Hqpo9&usqp=CAE', 'li');
         const optionalProtectorUrl = 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcStPa6-0jJrawX4vxVhKdVBGsujeHmoF2lze_qZGYIdfQEcIqlgFabTy0JhHszckQWGJ-yAaNyLcEyAJ2J0QFym5j0ssqmcS87yT1Aj2oqS&usqp=CAE';
         sessionStorage.setItem('selectedProtectorUrl', optionalProtectorUrl);
         const optionalBackgroundUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4vITrDZ6gwyPpgachBMmyEGX-mi_478PrMA&usqp=CAU';
@@ -1054,10 +1067,22 @@ themeSelect.addEventListener('change', () => {
         createCardElement('card24', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrknW_8qDdak19QHluPnDA2nK0yMEG-DxRwA&usqp=CAU', 'li');
         createCardElement('card25', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvj8BTIHfiS_Rs2hGlU8HMMg--aWHHmhe8xA&usqp=CAU', 'li');
         createCardElement('card26', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-bQQSvaZ5AR3QBGqg-u9QvxA75j8qRl4vwg&usqp=CAU', 'li');
-        createCardElement('card27', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPVTuiGl4aqYVQeFnK3StAKzHud4IqpS21Uw&usqp=CAU', 'pe');
-        createCardElement('card28', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbpKS_pm0k6R4rgvyVforCEmrCOHVUFPKVWw&usqp=CAU', 'xy');
-        createCardElement('card29', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRCCVEd-DhtRsnHBagABQc5iSGAObkM9YehA&usqp=CAU', 'li');
-        createCardElement('card30', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCOmzeF5Ogn8nQ-s9hjO1Kyip3ja6gghH__w&usqp=CAU', 'sp');
+        createCardElement('card27', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlcY9nDYSlkawIt0CAAlopZPqKOANOV54XBA&usqp=CAU', 'pe');
+        createCardElement('card28', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE6uvxsJ6TEBJ7jS0jHs-Xc3MnxDghEeiz7A&usqp=CAU', 'sp');
+        createCardElement('card29', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4s5d8TaSdjf3dWvJ5nxe1tyIk3mEBmuGKIQ&usqp=CAU', 'pe');
+        createCardElement('card30', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrxmh6uTUXvqYaIP3xozOHb-6U7g97ScAVoQ&usqp=CAU', 'sp');
+        createCardElement('card31', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzmM8IjMC9bBYvQB0oTg3iKjrjhF-h30WDmQ&usqp=CAU', 'xy');
+        createCardElement('card32', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzmM8IjMC9bBYvQB0oTg3iKjrjhF-h30WDmQ&usqp=CAU', 'xy');
+        createCardElement('card33', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzmM8IjMC9bBYvQB0oTg3iKjrjhF-h30WDmQ&usqp=CAU', 'xy');
+        createCardElement('card34', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScMGLITo0OMbvShvvC7KhNsaQ2D1yvPWB6HA&usqp=CAU', 'pe');
+        createCardElement('card35', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScMGLITo0OMbvShvvC7KhNsaQ2D1yvPWB6HA&usqp=CAU', 'pe');
+        createCardElement('card36', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScMGLITo0OMbvShvvC7KhNsaQ2D1yvPWB6HA&usqp=CAU', 'pe');
+        createCardElement('card37', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXwvfUq7FlU5Hb3NwIolHsS95cUPoE8EtjQg&usqp=CAU', 'li');
+        createCardElement('card38', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXwvfUq7FlU5Hb3NwIolHsS95cUPoE8EtjQg&usqp=CAU', 'li');
+        createCardElement('card39', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXwvfUq7FlU5Hb3NwIolHsS95cUPoE8EtjQg&usqp=CAU', 'li');
+        createCardElement('card40', 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRxENDpKDkE6uAhm5L3FQZP1AEPIEi9KOv5DR9a0CtyL9KejJkKybvU3WpF6zTuapm_L2fLOlEISCSAlvVBYbI45y48iK3uf0qRfROevZc&usqp=CAE', 'sp');
+        createCardElement('card41', 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRxENDpKDkE6uAhm5L3FQZP1AEPIEi9KOv5DR9a0CtyL9KejJkKybvU3WpF6zTuapm_L2fLOlEISCSAlvVBYbI45y48iK3uf0qRfROevZc&usqp=CAE', 'sp');
+        createCardElement('card42', 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRxENDpKDkE6uAhm5L3FQZP1AEPIEi9KOv5DR9a0CtyL9KejJkKybvU3WpF6zTuapm_L2fLOlEISCSAlvVBYbI45y48iK3uf0qRfROevZc&usqp=CAE', 'sp');
         const optionalProtectorUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-s7b9GEUOO0Bu3idFsQTOJWzKTDMmNbdsiw&usqp=CAU';
         sessionStorage.setItem('selectedProtectorUrl', optionalProtectorUrl);
         const optionalBackgroundUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUAk_QPdi7mFpxUhw_iVvT85DqOen4iblx2A&usqp=CAU';
@@ -1247,6 +1272,58 @@ themeSelect.addEventListener('change', () => {
         location.reload();
       }
       break;
+    //霊獣
+    case 'rituralBeast':
+      {
+        sessionStorage.clear();
+        createCardElement('card1', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTkg_x-hxPQ89jL6kPEz3hPsmJt0UQ3c3Zyw&usqp=CAU', 'sp');
+        createCardElement('card2', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTkg_x-hxPQ89jL6kPEz3hPsmJt0UQ3c3Zyw&usqp=CAU', 'sp');
+        createCardElement('card3', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTkg_x-hxPQ89jL6kPEz3hPsmJt0UQ3c3Zyw&usqp=CAU', 'sp');
+        createCardElement('card4', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTON010-VfcKhjEEz7Ug07QfUC5nXGhbg6sxg&usqp=CAU', 'ef');
+        createCardElement('card5', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTON010-VfcKhjEEz7Ug07QfUC5nXGhbg6sxg&usqp=CAU', 'ef');
+        createCardElement('card6', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTON010-VfcKhjEEz7Ug07QfUC5nXGhbg6sxg&usqp=CAU', 'ef');
+        createCardElement('card7', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHzsQJZuCFD-INe1uWkgPpsJyvdnoHjgdjtA&usqp=CAU', 'tr');
+        createCardElement('card8', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0MfUiLFupSNSSN9jk2twnqFjfmbXqZlX6Xg&usqp=CAU', 'sp');
+        createCardElement('card9', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0MfUiLFupSNSSN9jk2twnqFjfmbXqZlX6Xg&usqp=CAU', 'sp');
+        createCardElement('card10', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0MfUiLFupSNSSN9jk2twnqFjfmbXqZlX6Xg&usqp=CAU', 'sp');
+        createCardElement('card11', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnbsDp9OHTB6znDxXt7iudo466GAd8ZPj2tA&usqp=CAU', 'tr');
+        createCardElement('card12', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnbsDp9OHTB6znDxXt7iudo466GAd8ZPj2tA&usqp=CAU', 'tr');
+        createCardElement('card13', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnbsDp9OHTB6znDxXt7iudo466GAd8ZPj2tA&usqp=CAU', 'tr');
+        createCardElement('card14', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0z7KjgSws16J0HwSB0Lg1ghJgHEA3pX5Ofw&usqp=CAU', 'ef');
+        createCardElement('card15', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0z7KjgSws16J0HwSB0Lg1ghJgHEA3pX5Ofw&usqp=CAU', 'ef');
+        createCardElement('card16', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0z7KjgSws16J0HwSB0Lg1ghJgHEA3pX5Ofw&usqp=CAU', 'ef');
+        createCardElement('card17', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRneTcBf_YfhsPDMswDAR8fpiTJ7QF83YzC8g&usqp=CAU', 'ef');
+        createCardElement('card18', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl3eUGPIF-e1hByoLwI1UjNhW1t9_LKYxS_A&usqp=CAU', 'pe');
+        createCardElement('card19', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSETSrQ49B6qWfBzQX4u_RUbrvdttSYzTX6Ww&usqp=CAU', 'pe');
+        createCardElement('card20', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3iCQBLxjaOuj0CmVL2wiH8jXWVjKu5ekC4g&usqp=CAU', 'fu');
+        createCardElement('card21', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL6fkllT2FBwl0FqD2NyL8Lw4_S-AzrhyHLQ&usqp=CAU', 'li');
+        createCardElement('card22', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpI82lCclbV2qJSKA5pFEZAueYxX9LmcBg3A&usqp=CAU', 'fu');
+        createCardElement('card23', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpI82lCclbV2qJSKA5pFEZAueYxX9LmcBg3A&usqp=CAU', 'fu');
+        createCardElement('card24', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpI82lCclbV2qJSKA5pFEZAueYxX9LmcBg3A&usqp=CAU', 'fu');
+        createCardElement('card25', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVo_V3iWbXgplFAwFO6oI9OGSlz_Dkvqy3aA&usqp=CAU', 'ef');
+        createCardElement('card26', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT19bxVV0V_YKYbO6-Poa-S-mxQRm0AHAShDw&usqp=CAU', 'fu');
+        createCardElement('card27', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz0gek4QtZNv5RCRYEc-TrjwK5fTjbMwiC1Q&usqp=CAU', 'ef');
+        createCardElement('card28', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz0gek4QtZNv5RCRYEc-TrjwK5fTjbMwiC1Q&usqp=CAU', 'ef');
+        createCardElement('card29', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz0gek4QtZNv5RCRYEc-TrjwK5fTjbMwiC1Q&usqp=CAU', 'ef');
+        createCardElement('card30', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqcvcXJfr-9hO7oFQc1GzLO5HUPgVedk1IOg&usqp=CAU', 'ef');
+        createCardElement('card31', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqcvcXJfr-9hO7oFQc1GzLO5HUPgVedk1IOg&usqp=CAU', 'ef');
+        createCardElement('card32', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqcvcXJfr-9hO7oFQc1GzLO5HUPgVedk1IOg&usqp=CAU', 'ef');
+        createCardElement('card33', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQTu-sVT3ODpbghY4Hd7woLBkmvO51XgARQQ&usqp=CAU', 'fu');
+        createCardElement('card34', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQTu-sVT3ODpbghY4Hd7woLBkmvO51XgARQQ&usqp=CAU', 'fu');
+        createCardElement('card35', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQTu-sVT3ODpbghY4Hd7woLBkmvO51XgARQQ&usqp=CAU', 'fu');
+        createCardElement('card36', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbZyvxcaWEW_NS9LNAAhVLvOi3uwk54oJsVA&usqp=CAU', 'ef');
+        createCardElement('card37', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbZyvxcaWEW_NS9LNAAhVLvOi3uwk54oJsVA&usqp=CAU', 'ef');
+        createCardElement('card38', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbZyvxcaWEW_NS9LNAAhVLvOi3uwk54oJsVA&usqp=CAU', 'ef');
+        createCardElement('card39', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRONcrYdEXXTQ7eHRV4vHxMWFDjyEHsgYBo3A&usqp=CAU', 'fu');
+        createCardElement('card40', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXXYeIvAA0KAw3bMvoJSZNhOUh_kk6KQ6crg&usqp=CAU', 'li');
+        createCardElement('card41', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYdqq6qNbBTV8R9trMP3--9GwjHD__LC89lQ&usqp=CAU', 'sp'); ef https: //yu-gi-oh.jp/images/news/1793_20231031055445_img_1_QTy8ETgGNEM097uqyjIavHIXSnoaf0YvHNtJgPPrRZgRXO5LyBjhIp4YSgyvWNge.jpg
+        const optionalProtectorUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdjcvUa9mFPPFLFD6h4zSQ52MA5-52OqrYzA&usqp=CAU';
+        sessionStorage.setItem('selectedProtectorUrl', optionalProtectorUrl);
+        const optionalBackgroundUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdjcvUa9mFPPFLFD6h4zSQ52MA5-52OqrYzA&usqp=CAU';
+        sessionStorage.setItem('selectedBackgroundU l', optionalBackgroundUrl);
+        location.reload();
+      }
+      break;
   }
 });
 //APIでカードを出現させる
@@ -1322,8 +1399,8 @@ document.addEventListener('click', (event) => {
     }
     card.classList.add('clickedCard');
     card.style.opacity = 0.5;
-    maxZIndex += 1;
-    card.style.zIndex = maxZIndex;
+    let maxZIndex = Math.max(...Array.from(document.querySelectorAll('.cards')).map(obj => obj.style.zIndex));
+    card.style.zIndex = ++maxZIndex;
     card.style.opacity = 0.5;
   } else if (!document.querySelector('.clickedCard') && !document.querySelector('.clickedZone')) {
     //カードもゾーンも押していない場合
@@ -1395,6 +1472,7 @@ for (let i = 0; i < zones.length; i++) {
         if (zoneRect.left > 460) {
           //対象ゾーンが右側のときは一覧表示は左下方向に広がる
           for (const object of overlappingObjects) {
+            let maxZIndex = Math.max(...Array.from(document.querySelectorAll('.cards')).map(obj => obj.style.zIndex));
             Object.assign(object.style, {
               position: 'absolute',
               left: `${leftOffset}px`,
@@ -1415,6 +1493,7 @@ for (let i = 0; i < zones.length; i++) {
         } else if (zoneRect.left <= 460) {
           //対象ゾーンが左側から一覧表示は右下方向に広がる
           for (const object of overlappingObjects) {
+            let maxZIndex = Math.max(...Array.from(document.querySelectorAll('.cards')).map(obj => obj.style.zIndex));
             Object.assign(object.style, {
               position: 'absolute',
               left: `${leftOffset}px`,
@@ -1460,8 +1539,8 @@ actionMoveAndGlow.addEventListener('click', () => {
     clickedCard.style.top = `${zoneTop}px`;
     clickedCard.style.left = `${zoneLeft}px`;
     clickedCard.style.transition = 'top 0.8s ease-in-out, left 0.8s ease-in-out';
-    maxZIndex += 1;
-    clickedCard.style.zIndex = maxZIndex;
+    let maxZIndex = Math.max(...Array.from(document.querySelectorAll('.cards')).map(obj => obj.style.zIndex));
+    clickedCard.style.zIndex = ++maxZIndex;
     setTimeout(() => {
       playSound(soundActivateBuffer);
       // 時間をおいてからcardを表示させる
@@ -1481,7 +1560,7 @@ actionMoveAndGlow.addEventListener('click', () => {
           zoneId: clickedZone.id,
           zoneTop: zoneTop,
           zoneLeft: zoneLeft,
-          zIndex: maxZIndex,
+          zIndex: clickedCard.style.zIndex,
           cardImageUrl: clickedCard.src,
           animationType: 'cardGlowAnimation',
           transform: updatedTransform
@@ -1507,8 +1586,8 @@ actionActivateEffect.addEventListener('click', () => {
   if (document.querySelector('.clickedCard') && !document.querySelector('.clickedZone')) {
     const clickedCard = document.querySelector('.clickedCard');
     playSound(soundActivateBuffer);
-    maxZIndex += 1;
-    clickedCard.style.zIndex = maxZIndex;
+    let maxZIndex = Math.max(...Array.from(document.querySelectorAll('.cards')).map(obj => obj.style.zIndex));
+    clickedCard.style.zIndex = ++maxZIndex;
     clickedCard.style.opacity = '1';
     //現在の transform の値を取得する
     const currentTransform = clickedCard.style.transform;
@@ -1516,7 +1595,7 @@ actionActivateEffect.addEventListener('click', () => {
     const log = {
       actionType: 'glowCard',
       cardId: clickedCard.id,
-      zIndex: maxZIndex,
+      zIndex: clickedCard.style.zIndex,
       animationType: 'cardGlowAnimation',
       transform: currentTransform
     }
@@ -1561,8 +1640,8 @@ const actionMoveAndZoom = (imageUrl, rotation) => {
     clickedCard.style.top = `${zoneTop}px`;
     clickedCard.style.left = `${zoneLeft}px`;
     clickedCard.style.transition = 'top 0.8s ease-in-out, left 0.8s ease-in-out';
-    maxZIndex += 1;
-    clickedCard.style.zIndex = maxZIndex;
+    let maxZIndex = Math.max(...Array.from(document.querySelectorAll('.cards')).map(obj => obj.style.zIndex));
+    clickedCard.style.zIndex = ++maxZIndex;
     setTimeout(() => {
       // 時間をおいてからcardを表示させる
       clickedCard.style.opacity = '1';
@@ -1579,7 +1658,7 @@ const actionMoveAndZoom = (imageUrl, rotation) => {
           zoneId: clickedZone.id,
           zoneTop: zoneTop,
           zoneLeft: zoneLeft,
-          zIndex: maxZIndex,
+          zIndex: clickedCard.style.zIndex,
           cardImageUrl: clickedCard.src,
           animationType: 'summonAnimation',
           transform: updatedTransform
@@ -1652,8 +1731,8 @@ const actionMove = (imageUrl, rotation) => {
     clickedCard.style.top = `${zoneTop}px`;
     clickedCard.style.left = `${zoneLeft}px`;
     clickedCard.style.transition = 'top 0.8s ease-in-out, left 0.8s ease-in-out';
-    maxZIndex += 1;
-    clickedCard.style.zIndex = maxZIndex;
+    let maxZIndex = Math.max(...Array.from(document.querySelectorAll('.cards')).map(obj => obj.style.zIndex));
+    clickedCard.style.zIndex = ++maxZIndex;
     setTimeout(() => {
       // 時間をおいてからcardを表示させる
       clickedCard.style.opacity = '1';
@@ -1667,7 +1746,7 @@ const actionMove = (imageUrl, rotation) => {
         zoneId: clickedZone.id,
         zoneTop: zoneTop,
         zoneLeft: zoneLeft,
-        zIndex: maxZIndex,
+        zIndex: clickedCard.style.zIndex,
         cardImageUrl: clickedCard.src,
         transform: updatedTransform
       };
@@ -1831,8 +1910,8 @@ undoButton.addEventListener('click', () => {
       const undoZoneRect = undoZoneElement.getBoundingClientRect(); // DOM要素の位置を取得
       const undoZoneTop = undoZoneRect.top + 2;
       const undoZoneLeft = undoZoneRect.left + 22;
-      maxZIndex += 1;
-      const undoZIndex = maxZIndex;
+      let maxZIndex = Math.max(...Array.from(document.querySelectorAll('.cards')).map(obj => obj.style.zIndex));
+      const undoZIndex = ++maxZIndex;
       const undoCardImageUrl = filteredLogs[filteredLogs.length - 1].cardImageUrl;
       const undoTransform = filteredLogs[filteredLogs.length - 1].transform;
       const undoCard = document.getElementById(lastCardId);
