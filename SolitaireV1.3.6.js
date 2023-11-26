@@ -228,6 +228,7 @@ themeSelect.addEventListener('change', () => {
     imgElement.dataset.src = imageUrl;
     imgElement.src = imageUrl;
     imgElement.dataset.type = type; // data-type 属性を設定
+    imgElement.style.opacity = 0; //データ選択するとき一瞬カードが表示されると見栄え悪いので非表示
     const sameImageUrlElement = cardBoard.querySelector(`img[data-src="${imageUrl}"]`);
     if (sameImageUrlElement) {
       //同じカード画像がある場合
@@ -1314,14 +1315,64 @@ themeSelect.addEventListener('change', () => {
         createCardElement('card36', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbZyvxcaWEW_NS9LNAAhVLvOi3uwk54oJsVA&usqp=CAU', 'ef');
         createCardElement('card37', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbZyvxcaWEW_NS9LNAAhVLvOi3uwk54oJsVA&usqp=CAU', 'ef');
         createCardElement('card38', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbZyvxcaWEW_NS9LNAAhVLvOi3uwk54oJsVA&usqp=CAU', 'ef');
-        createCardElement('card39', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRONcrYdEXXTQ7eHRV4vHxMWFDjyEHsgYBo3A&usqp=CAU', 'fu');
-        createCardElement('card40', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXXYeIvAA0KAw3bMvoJSZNhOUh_kk6KQ6crg&usqp=CAU', 'li');
-        createCardElement('card41', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYdqq6qNbBTV8R9trMP3--9GwjHD__LC89lQ&usqp=CAU', 'sp');
-        createCardElement('card42', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqgjxxPrxmbhbUJZ3aPjPzuBfYrmoOBScAig&usqp=CAU', 'ef');
-        createCardElement('card43', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo2nXrTyv_Gp257VF31-_RCC_vgyuz38pIzA&usqp=CAU', 'ef');        
+        createCardElement('card39', 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQzruhXGATwwRVQnVTry8XxJVHc0LLPfuAUmAY_K-ZU5DvjDI_zvPqRnf4lmZooDmA2xBQZKaDLBpbVS9CqCkBDNgrDmR1CSJvlxtmMvE0i&usqp=CAE', 'fu');
+        createCardElement('card40', 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTiMcTvstO7mYOyAoary_wBTnlTjC40BG-mK939KgwuCgC4sw_qJhTtCFLqvETIhjQdx43iCVyCVJ29jaacd5deoU8xbcECsLA9MkcU8wzK&usqp=CAE', 'li');
+        createCardElement('card41', 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSEYT7OrYuwVFBH9FdgXiYgzuIifrjmbqJe1dNNP2g8IfyKYFshHS_J-znhwNFG--R8Dgs6RC2pgDG439QT2ZA0yRf0TYtw8c3AIULLcJ5i&usqp=CAE', 'sp');
+        createCardElement('card42', 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSG7YKMmAvtx6a89OPj_-lak95jEe2PO09r_oYiGyNMaRLJEApR_uf13wGOzREwQFm5YvFhX0ASbmCnZmurr9i6kc9oGLg_BD_7tAyyA-s&usqp=CAE', 'ef');
+        createCardElement('card43', 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSG7YKMmAvtx6a89OPj_-lak95jEe2PO09r_oYiGyNMaRLJEApR_uf13wGOzREwQFm5YvFhX0ASbmCnZmurr9i6kc9oGLg_BD_7tAyyA-s&usqp=CAE', 'ef');
+        createCardElement('card44', 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSG7YKMmAvtx6a89OPj_-lak95jEe2PO09r_oYiGyNMaRLJEApR_uf13wGOzREwQFm5YvFhX0ASbmCnZmurr9i6kc9oGLg_BD_7tAyyA-s&usqp=CAE', 'ef');
+        createCardElement('card45', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo2nXrTyv_Gp257VF31-_RCC_vgyuz38pIzA&usqp=CAU', 'ef');
         const optionalProtectorUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2SJddq-mhaNd2rs-SLhg63FlHe_b8SibHRQ&usqp=CAU';
         sessionStorage.setItem('selectedProtectorUrl', optionalProtectorUrl);
         const optionalBackgroundUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdjcvUa9mFPPFLFD6h4zSQ52MA5-52OqrYzA&usqp=CAU';
+        sessionStorage.setItem('selectedBackgroundUrl', optionalBackgroundUrl);
+        location.reload();
+      }
+      break;
+    //インフェルノイド
+    case 'Infernoid':
+      {
+        sessionStorage.clear();
+        createCardElement('card1', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgOp-uqcwZiL_V9IiGk1bXSscTfQZ6qSyBGQ&usqp=CAU', 'sp');
+        createCardElement('card2', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHI85qBRewxGcFzh0iI0MKw3Kdq8RDN17HuQ&usqp=CAU', 'ef');
+        createCardElement('card3', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2pmwJjdYpCjNwHWq-u72vNLCbdqNeuTZhBQ&usqp=CAU', 'fu');
+        createCardElement('card4', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNcFZvzoxZVnsCFEmPBiRNVNndNqJ58o8jeA&usqp=CAU', 'ef');
+        createCardElement('card5', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGEudFlLDrrDqAdFiOd8_G88v4psX5WKKq7Q&usqp=CAU', 'ef');
+        createCardElement('card6', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpHnUy-_74NFriN8rUDkOXA3YGcl5ziFPs4w&usqp=CAU', 'ef');
+        createCardElement('card7', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTji6Ams13300c8AYc2bodZFuTM3zMbxQZzcA&usqp=CAU', 'ef');
+        createCardElement('card8', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDeMRZnasC2G9maCK-SqU6XSywejHVP736Sw&usqp=CAU', 'ef');
+        createCardElement('card9', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJTvXDJgfjItirhppoMCLKcL5ht3uEIe1kHw&usqp=CAU', 'ef');
+        createCardElement('card10', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0aCbD87HtVXP3luz2Iyw4MtaB9AQzPRodfg&usqp=CAU', 'ef');
+        createCardElement('card11', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUFlpr_zV7_JcFkC7S14YAVo-PdUFDHFYWTg&usqp=CAU', 'sp');
+        createCardElement('card12', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6Ub4QVvxLn1RyyDGSXLhlFihwkaPf4YveGg&usqp=CAU', 'sp');
+        createCardElement('card13', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8GM3jUha9qS-L7MDD_QjHH1LIeqfGoc0-oQ&usqp=CAU', 'tr');
+        createCardElement('card14', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI-ReUE7mPUGymoAjUUD4KnKFO4baSi51_CQ&usqp=CAU', 'tr');
+        createCardElement('card15', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwJPBHoqWrhrz9UsCTc8KH2WrWBHGpC9rpKA&usqp=CAU', 'sp');
+        createCardElement('card16', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzRkNNpm1JHvBYHe4CixnM1r1J2JgUycgpCQ&usqp=CAU', 'sp');
+        createCardElement('card17', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROIVI0dj8dIpCEkge9qgTuQqzMJHqXeVYdhg&usqp=CAU', 'tr');
+        createCardElement('card18', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShdcLz-Kf7QANj_m6sEHIaOLHBejZRmWEl8A&usqp=CAU', 'sp');
+        createCardElement('card19', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4w44UEsc81z9dgzIAcv3LhFcaG56fg0cSNw&usqp=CAU', 'ef');
+        createCardElement('card20', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzijIZrnH8--Eywh5LfE3PnRtfkCldyBcsbQ&usqp=CAU', 'ef');
+        createCardElement('card21', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTXE1VsvwfzJ8SXe-KiIZzRDI9kAc8_hSpzQ&usqp=CAU', 'ef');
+        createCardElement('card22', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgQwmz7oJ5hrFeCksXnFc9xr5TYFz-tusmqA&usqp=CAU', 'ef');
+        createCardElement('card23', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQniUMrnID_HY-Kez414moYu4Y71-QwwnNoww&usqp=CAU', 'fu');
+        createCardElement('card24', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6kMdKEFDagcqqknWVIa1M0D7JPpP_0OFgZQ&usqp=CAU', 'li');
+        createCardElement('card25', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5GehX6VykqrKyrD9ZwcizPaOs1sKl4QODhA&usqp=CAU', 'sp');
+        createCardElement('card26', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMf7r1z5-kxVrMp3dZuMIFtWyVVrjKnp65Rw&usqp=CAU', 'sp');
+        createCardElement('card27', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk4_0TtK_0KS_4p4vpCqoVia3pjhM3QiXIsA&usqp=CAU', 'li');
+        createCardElement('card28', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj442ksdiNoJJjo0i61qaW6VfWq6f1Yh38Tw&usqp=CAU', 'li');
+        createCardElement('card29', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZbkMRe6pCXPL_ZyBd1ExmGx8vo54E4U61iw&usqp=CAU', 'ef');
+        createCardElement('card30', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLxo5jvNJllx0kMZFlwmRT0bK6mgbmnmcZzw&usqp=CAU', 'li');
+        createCardElement('card', 'あ', 'い');
+        createCardElement('card', 'あ', 'い');
+        createCardElement('card', 'あ', 'い');
+        createCardElement('card', 'あ', 'い');
+        createCardElement('card', 'あ', 'い');
+        createCardElement('card', 'あ', 'い');
+
+        const optionalProtectorUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2SJddq-mhaNd2rs-SLhg63FlHe_b8SibHRQ&usqp=CAU';
+        sessionStorage.setItem('selectedProtectorUrl', optionalProtectorUrl);
+        const optionalBackgroundUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe22fYsktvPbiSOrfrJW2SJFiFDrw4E6gY9g&usqp=CAU';
         sessionStorage.setItem('selectedBackgroundUrl', optionalBackgroundUrl);
         location.reload();
       }
@@ -2033,6 +2084,13 @@ loadLogButton.addEventListener('click', () => {
   logs = JSON.parse(logText);
   // アニメーションを再生する
   for (const [index, log] of logs.entries()) {
+    //一時的なコメントがずっと表示されるのを防ぐ関数
+    const hideComment = () => {
+      if (index >= 4 && logs[index - 4].actionType === "saveComment") {
+        commentArea.value = '';
+      }
+    }
+    //指定した時間間隔でログ再生する
     setTimeout(() => {
       const {
         actionType,
@@ -2047,6 +2105,7 @@ loadLogButton.addEventListener('click', () => {
         text
       } = log;
       if (actionType === 'moveCard') {
+        hideComment();
         playSound(soundMoveBuffer);
         const replayedCard = document.getElementById(cardId);
         const replayedZone = document.getElementById(zoneId);
@@ -2069,6 +2128,7 @@ loadLogButton.addEventListener('click', () => {
           replayedCard.style.opacity = '1';
         }, 500);
       } else if (actionType === 'moveAndZoomCard') {
+        hideComment();
         playSound(soundSummonBuffer);
         const replayedCard = document.getElementById(cardId);
         const replayedZone = document.getElementById(zoneId);
@@ -2096,6 +2156,7 @@ loadLogButton.addEventListener('click', () => {
           }, 400);
         }, 500);
       } else if (actionType === 'moveAndGlowCard') {
+        hideComment();
         playSound(soundMoveBuffer);
         const replayedCard = document.getElementById(cardId);
         const replayedZone = document.getElementById(zoneId);
@@ -2125,6 +2186,7 @@ loadLogButton.addEventListener('click', () => {
           }, 1000);
         }, 300);
       } else if (actionType === 'glowCard') {
+        hideComment();
         playSound(soundActivateBuffer);
         const replayedCard = document.getElementById(cardId);
         const replayedZone = document.getElementById(zoneId);
@@ -2138,7 +2200,7 @@ loadLogButton.addEventListener('click', () => {
         }, 400);
       } else if (actionType === 'saveComment') {
         playSound(soundMessageBuffer);
-        commentArea.value = '';
+        commentArea.value = ''; //一度点滅させる
         commentArea.value = text;
         const textLength = commentArea.value.length;
         let fontSize = 25; // デフォルトのフォントサイズ
@@ -2148,7 +2210,11 @@ loadLogButton.addEventListener('click', () => {
           fontSize = 20;
         }
         commentArea.style.fontSize = fontSize + 'px';
+        //setTimeOut(()=> {
+        //  commentArea.value = ''; //一時的なコメントを一定期間後に見えなくする
+        //}, index * secValue * 2) //1.4秒区切りなら2.8秒後に消えるようにする
       } else if (actionType === 'attentionComment') {
+        hideComment();
         playSound(soundMessageBuffer);
         attentionArea.value = '';
         attentionArea.value = text;
@@ -2161,12 +2227,14 @@ loadLogButton.addEventListener('click', () => {
         }
         attentionArea.style.fontSize = fontSize + 'px';
       } else if (actionType === 'displayMyLifePoint') {
+        hideComment();
         myLifePointBox.style.opacity = '0';
         setTimeout(() => {
           myLifePointBox.innerHTML = text;
           myLifePointBox.style.opacity = '1';
         }, 500);
       } else if (actionType === 'displayOpponentLifePoint') {
+        hideComment();
         opponentLifePointBox.style.opacity = '0';
         setTimeout(() => {
           opponentLifePointBox.innerHTML = text;
