@@ -429,6 +429,19 @@ themeSelect.addEventListener('change', () => {
         createCardElement('card76', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYnX8i7pHdVPW-YmeVtzWVdoLfU5l_RqPpNA&usqp=CAU', 'pe');
         createCardElement('card77', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTesgBCJpyyK2REPJkukhQFLCyumVYXvzmCmQ&usqp=CAU', 'li');
         createCardElement('card78', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmEmBgyq4S172SgbEe0MROHiSlPpT5NqtjHQ&usqp=CAU', 'xy');
+        createCardElement('card79', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsA69YIC31RRt-eqORH5zlNMcp51XVZHMVbA&usqp=CAU', 'li');
+        createCardElement('card80', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXymeXEhomCZhkxWBrTzkZTQ19WqCE1_1IrQ&usqp=CAU', 'sp');
+        createCardElement('card81', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc62YSyeVVgp5PibUMxd0NT31oVKuhKdzF2Q&usqp=CAU', 'sp');
+        createCardElement('card82', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY7Pgqk_1v-Iag5pqvel5tD2c-PKfflkKQbA&usqp=CAU', 'sp');
+        createCardElement('card83', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRq8cC77wM6SRvhdGKr5bU2LFryI6oU5HimoQ&usqp=CAU', 'sp');
+        createCardElement('card84', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRq8cC77wM6SRvhdGKr5bU2LFryI6oU5HimoQ&usqp=CAU', 'sp');
+        createCardElement('card85', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRq8cC77wM6SRvhdGKr5bU2LFryI6oU5HimoQ&usqp=CAU', 'sp');
+        createCardElement('card86', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ2kVbYDtEUkUjsxgE2JjHyAHzzDgbs4Q1PA&usqp=CAU', 'sp');
+        createCardElement('card87', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzeBw4-aFV3VgeCxamLrbh51lcPh0Nm1uc0g&usqp=CAU', 'ef');
+        createCardElement('card88', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8eJoiZ2yrj7ivkraCFwHoVBpErjI1yuA-gQ&usqp=CAU', 'ef');
+        createCardElement('card89', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHSof4_22f1NoZqQpKzVd6iR4VOrQxuNqgGA&usqp=CAU', 'ef');
+        createCardElement('card90', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXymeXEhomCZhkxWBrTzkZTQ19WqCE1_1IrQ&usqp=CAU', 'sp');
+        createCardElement('card91', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXymeXEhomCZhkxWBrTzkZTQ19WqCE1_1IrQ&usqp=CAU', 'sp');
         //const optionalProtectorUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdXjeG-XiJ_1TIZubcmgQQc6D0MldMzEEbIA&usqp=CAU'; //黄スリーブ
         const optionalProtectorUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgHzRQa_zODX9IhJs1ClrXEEtcYOuuu_3bLQ&usqp=CAU'; //赤スリーブ
         sessionStorage.setItem('selectedProtectorUrl', optionalProtectorUrl);
@@ -1355,8 +1368,8 @@ themeSelect.addEventListener('change', () => {
         createCardElement('card20', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzijIZrnH8--Eywh5LfE3PnRtfkCldyBcsbQ&usqp=CAU', 'ef');
         createCardElement('card21', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTXE1VsvwfzJ8SXe-KiIZzRDI9kAc8_hSpzQ&usqp=CAU', 'ef');
         createCardElement('card22', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgQwmz7oJ5hrFeCksXnFc9xr5TYFz-tusmqA&usqp=CAU', 'ef');
-        createCardElement('card23', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQniUMrnID_HY-Kez414moYu4Y71-QwwnNoww&usqp=CAU', 'fu');
-        createCardElement('card24', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6kMdKEFDagcqqknWVIa1M0D7JPpP_0OFgZQ&usqp=CAU', 'li');
+        createCardElement('card23', 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSnk0eKbQxNx8yHtyrpmabvVMQCbtKGFoCUotzo1E-VrILxDBb2F1CcLC2_wSvL2BpZtWe4Q-smQ6S7ebEzzoDEXTYfb3CgYfelcefwKmw0&usqp=CAE', 'fu');
+        createCardElement('card24', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE2_6SCvJTus9rxvUyi1x24KYWiPM4A5I1Tw&usqp=CAU', 'li');
         createCardElement('card25', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5GehX6VykqrKyrD9ZwcizPaOs1sKl4QODhA&usqp=CAU', 'sp');
         createCardElement('card26', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMf7r1z5-kxVrMp3dZuMIFtWyVVrjKnp65Rw&usqp=CAU', 'sp');
         createCardElement('card27', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk4_0TtK_0KS_4p4vpCqoVia3pjhM3QiXIsA&usqp=CAU', 'li');
@@ -1373,6 +1386,60 @@ themeSelect.addEventListener('change', () => {
         const optionalProtectorUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2SJddq-mhaNd2rs-SLhg63FlHe_b8SibHRQ&usqp=CAU';
         sessionStorage.setItem('selectedProtectorUrl', optionalProtectorUrl);
         const optionalBackgroundUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe22fYsktvPbiSOrfrJW2SJFiFDrw4E6gY9g&usqp=CAU';
+        sessionStorage.setItem('selectedBackgroundUrl', optionalBackgroundUrl);
+        location.reload();
+      }
+      break;
+    //オルターガイスト
+    case 'Altergeist':
+      {
+        sessionStorage.clear();
+        createCardElement('card1', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQgKErtdVHHZSpIol5adTcAJDPSJvuqqQuEw&usqp=CAU', 'li');
+        createCardElement('card2', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7zItuLEXG6NUIbPU8GkTQQGdw3FfWg1dHXg&usqp=CAU', 'li');
+        createCardElement('card3', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7zItuLEXG6NUIbPU8GkTQQGdw3FfWg1dHXg&usqp=CAU', 'li');
+        createCardElement('card4', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaTl9VTcFpUn7eBQzpYNHKkHDCt61fWDn-IA&usqp=CAU', 'ef');
+        createCardElement('card5', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaTl9VTcFpUn7eBQzpYNHKkHDCt61fWDn-IA&usqp=CAU', 'ef');
+        createCardElement('card6', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaTl9VTcFpUn7eBQzpYNHKkHDCt61fWDn-IA&usqp=CAU', 'ef');
+        createCardElement('card7', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj5l_Vv6R8ogiJumnvD25NNmur9jpXipWMvw&usqp=CAU', 'ef');
+        createCardElement('card8', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj5l_Vv6R8ogiJumnvD25NNmur9jpXipWMvw&usqp=CAU', 'ef');
+        createCardElement('card9', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj5l_Vv6R8ogiJumnvD25NNmur9jpXipWMvw&usqp=CAU', 'ef');
+        createCardElement('card10', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE4YIVvZCQq7s_ZvvOthNw0MPdzzRn1pDOKg&usqp=CAU', 'ef');
+        createCardElement('card11', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPFcbHktbhD4p-hqPbx5J9SJZ6EpJ4IRRKZQ&usqp=CAU', 'sy');
+        createCardElement('card12', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH3sUlfFEWxgfbsIrYPQV6pobkcRajUfrs1Q&usqp=CAU', 'li');
+        createCardElement('card13', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6IkMiy_KMeYAk316AyQawFmSthu3nCT7aaA&usqp=CAU', 'ef');
+        createCardElement('card14', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTK7-FW2wzAENkQ5fhP2SS7ryNbFeZUjLlBg&usqp=CAU', 'tr');
+        createCardElement('card15', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS85VgVlMIKtoioX8TdOuGShD_yJyrshUnhHg&usqp=CAU', 'ef');
+        createCardElement('card16', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS85VgVlMIKtoioX8TdOuGShD_yJyrshUnhHg&usqp=CAU', 'ef');
+        createCardElement('card17', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS85VgVlMIKtoioX8TdOuGShD_yJyrshUnhHg&usqp=CAU', 'ef');
+        createCardElement('card18', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqZlYPzsmH47pZJVkpGwtdTZqc0Wnfr-Z_YA&usqp=CAU', 'li');
+        createCardElement('card19', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQejv32Cgs8_HzxekMHGkW76O5sS9YimHjtvQ&usqp=CAU', 'tr');
+        createCardElement('card20', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTecgiS7VpH_9t5aY-cbH5BTaFuOeTmBjgndw&usqp=CAU', 'tr');
+        createCardElement('card21', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbeZFgbEq6h8-MJFM_6q4pY0aJAf-2i0GDOA&usqp=CAU', 'ef');
+        createCardElement('card22', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbeZFgbEq6h8-MJFM_6q4pY0aJAf-2i0GDOA&usqp=CAU', 'ef');
+        createCardElement('card23', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbeZFgbEq6h8-MJFM_6q4pY0aJAf-2i0GDOA&usqp=CAU', 'ef');
+        createCardElement('card24', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7OwWDcW5UIgki7JmPBKXwaUcqZbaDMTxTow&usqp=CAU', 'ef');
+        createCardElement('card25', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLLP-nEMF4nFAas8fHBUrPit4z7D_L1hjZEA&usqp=CAU', 'tr');
+        createCardElement('card26', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLLP-nEMF4nFAas8fHBUrPit4z7D_L1hjZEA&usqp=CAU', 'tr');
+        createCardElement('card27', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLLP-nEMF4nFAas8fHBUrPit4z7D_L1hjZEA&usqp=CAU', 'tr');
+        createCardElement('card28', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSBtGN9A8oRw7JBl9sZhrtOf3OA6qJex0mQg&usqp=CAU', 'tr');
+        createCardElement('card29', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi_O2tpxWEWYKilDBCOgcW0KZPmqravbx71Q&usqp=CAU', 'ef');
+        createCardElement('card30', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXu1kyURoVM8a4Fe-W9VeNgjjUYP8zCL4s0g&usqp=CAU', 'li');
+        createCardElement('card31', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYUi0qtCoNZaDQU-9xTu3HXWa-1mhl_V5LyA&usqp=CAU', 'ef');
+        createCardElement('card32', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAA8oP0Ab2XGtr1bZzir_bcvgy8ng1XB-wZg&usqp=CAU', 'ef');
+        createCardElement('card33', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK8-8SCFDBIMLaPqkF1rhw3bfSHpEIBDylnA&usqp=CAU', 'ef');
+        createCardElement('card34', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSqXBMMp8wnHQaCQazoa9_U-Ap6pmY260bFQ&usqp=CAU', 'tr');
+        createCardElement('card35', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSqXBMMp8wnHQaCQazoa9_U-Ap6pmY260bFQ&usqp=CAU', 'tr');
+        createCardElement('card36', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSqXBMMp8wnHQaCQazoa9_U-Ap6pmY260bFQ&usqp=CAU', 'tr');
+        createCardElement('card37', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYeRu81ukJ7LK14A_lUkjZxvC3xqWydYOXcQ&usqp=CAU', 'tr');
+        createCardElement('card38', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYeRu81ukJ7LK14A_lUkjZxvC3xqWydYOXcQ&usqp=CAU', 'tr');
+        createCardElement('card39', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYeRu81ukJ7LK14A_lUkjZxvC3xqWydYOXcQ&usqp=CAU', 'tr');
+        createCardElement('card40', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnrD_2yRPzPf2tdlRW_NrfDTVcKS4gzRAUaA&usqp=CAU', 'tr');
+        createCardElement('card41', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiFi_FCNkzob7fSQXTo7u-jCuc-TtUJrvjYw&usqp=CAU', 'sp');
+        createCardElement('card42', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl2l2HM7yLLYIo13Dy9GsDk4ZH4J3dc0j1sA&usqp=CAU', 'li');
+        createCardElement('card43', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrtE8JbAXXvkVCFpiaaWayOHb1HTVQ9zHJmQ&usqp=CAU', 'li');
+        const optionalProtectorUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3FbsJdlfOoocmaWxbaiBkQQouGEbk-4sILQ&usqp=CAU';
+        sessionStorage.setItem('selectedProtectorUrl', optionalProtectorUrl);
+        const optionalBackgroundUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8xGdZdnbC6fqCoMLDzHVrTfxdIdrp3rp0Xw&usqp=CAU';
         sessionStorage.setItem('selectedBackgroundUrl', optionalBackgroundUrl);
         location.reload();
       }
@@ -1515,7 +1582,7 @@ for (let i = 0; i < zones.length; i++) {
         const cardHeight = 127; // カードの高さ
         const cardWidth = 100; //カードの横幅
         const spacing = 10; // カード間のスペース
-        const howManyCardsInOneRow = 7; // 1列の中で表示したいカードの数
+        const howManyCardsInOneRow = 6; // 1列の中で表示したいカードの数
         const howManyRows = Math.ceil(overlappingObjects.length / howManyCardsInOneRow); // 列の数
         let topOffset = zoneRect.top + 10; //微調整
         let leftOffset = zoneRect.left + 22; //微調整
@@ -2086,7 +2153,9 @@ loadLogButton.addEventListener('click', () => {
   for (const [index, log] of logs.entries()) {
     //一時的なコメントがずっと表示されるのを防ぐ関数
     const hideComment = () => {
-      if (index >= 4 && logs[index - 4].actionType === "saveComment") {
+      if (
+        index >= 4 && logs[index - 4].actionType === "saveComment" && logs[index - 3].actionType !== "saveComment" && logs[index - 2].actionType !== "saveComment" && logs[index - 1].actionType !== "saveComment"
+      ) {
         commentArea.value = '';
       }
     }
