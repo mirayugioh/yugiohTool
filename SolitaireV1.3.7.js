@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
             //次の種類のカードがあれば、その中で一番若い種類のやつの直前に子要素として追加する
             let theSmallestTypeElement = nextTypeElements[0]; //最初の要素を一番若いものと仮定して初期化
             //nextTypeElements配列の中を1つ1つ比較。一番若いものを特定
-            for (let i = 1; i < nextTypeElements.length; i=i+1) {
+            for (let i = 1; i < nextTypeElements.length; i = i+1) {
               if (typeOrder[nextTypeElements[i].dataset.type] < typeOrder[theSmallestTypeElement.dataset.type]) {
                 theSmallestTypeElement = nextTypeElements[i];
               }
@@ -255,11 +255,11 @@ themeSelect.addEventListener('change', () => {
           //次の種類のカードがあれば、その中で一番若い種類のやつの直前に子要素として追加する
           let theSmallestTypeElement = nextTypeElements[0]; //最初の要素を一番若いものと仮定して初期化
           //nextTypeElements配列の中を1つ1つ比較。一番若いものを特定
-          for (let i = 1; i < nextTypeElements.length; i=i+1) {
+          for (let i = 1; i < nextTypeElements.length; i = i+1) {
             if (typeOrder[nextTypeElements[i].dataset.type] < typeOrder[theSmallestTypeElement.dataset.type]) {
               theSmallestTypeElement = nextTypeElements[i];
             }
-          }  
+          }
           cardBoard.insertBefore(imgElement, theSmallestTypeElement);
         } else {
           //次の種類のカードがどこにもなければ、普通に一番最後に追加する
@@ -1525,7 +1525,7 @@ themeSelect.addEventListener('change', () => {
         createCardElement('card', 'あ', 'い');
         createCardElement('card', 'あ', 'い');
         createCardElement('card', 'あ', 'い');
-        
+
         const optionalProtectorUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0Umdvmv_aAcUIE9DZKQfq3f2APwpawzlOcg&usqp=CAU';
         sessionStorage.setItem('selectedProtectorUrl', optionalProtectorUrl);
         const optionalBackgroundUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTigshN5fnwKH9-MMNzQMAbWN-qvwV8-Q6-TQ&usqp=CAU';
@@ -1587,7 +1587,7 @@ document.addEventListener('click', (event) => {
     card.style.opacity = 0.5;
   } else if (!document.querySelector('.clickedCard') && document.querySelector('.clickedZone')) {
     //カードを押していなくてゾーンは押していた場合
-    window.scrollTo(0, 0);  //ウィンドウ一番上に強制スクロール
+    window.scrollTo(0, 0); //ウィンドウ一番上に強制スクロール
     const clickedZone = document.querySelector('.clickedZone');
     const zoneRect = clickedZone.getBoundingClientRect();
     const zoneTop = zoneRect.top + 2;
@@ -1667,7 +1667,7 @@ for (let i = 0; i < zones.length; i++) {
       });
       //クリックしたゾーンの上にあるカードが2枚以上なら一覧表示処理する
       if (overlappingObjects.length >= 2) {
-        window.scrollTo(0, 0);  //ウィンドウ一番上に強制スクロール
+        window.scrollTo(0, 0); //ウィンドウ一番上に強制スクロール
         zone.classList.add('clickedZone');
         const zoneRect = zone.getBoundingClientRect();
         const cardHeight = 127; // カードの高さ
@@ -2111,8 +2111,8 @@ undoButton.addEventListener('click', () => {
     if (filteredLogs.length === 1) {
       window.scrollTo(0, 0);
       const undoZoneId = 'zone25'; // 実際のDOM要素のIDを指定する
-      const undoZoneElement = document.getElementById(undoZoneId); // DOM要素を取得
-      const undoZoneRect = undoZoneElement.getBoundingClientRect(); // DOM要素の位置を取得
+      const undoZone = document.getElementById(undoZoneId);
+      const undoZoneRect = undoZone.getBoundingClientRect(); // DOM要素の位置を取得
       const undoZoneTop = undoZoneRect.top + 2;
       const undoZoneLeft = undoZoneRect.left + 22;
       let maxZIndex = Math.max(...Array.from(document.querySelectorAll('.cards')).map(obj => obj.style.zIndex));
@@ -2120,7 +2120,6 @@ undoButton.addEventListener('click', () => {
       const undoCardImageUrl = filteredLogs[filteredLogs.length - 1].cardImageUrl;
       const undoTransform = filteredLogs[filteredLogs.length - 1].transform;
       const undoCard = document.getElementById(lastCardId);
-      const undoZone = document.getElementById(undoZoneId);
       // まずcardを非表示にする
       undoCard.style.opacity = '0';
       //早めに向きを変えておく
@@ -2138,22 +2137,20 @@ undoButton.addEventListener('click', () => {
         // 時間をおいてからcardを表示させる
         undoCard.style.opacity = '1';
         undoZone.style.opacity = '0.35';
-        // 配列をリセットする
-        //undoCard = null;
-        //undoZone = null;
       }, 500);
     } else if (filteredLogs.length >= 2) {
       //ウィンドウ一番上に強制スクロール
       window.scrollTo(0, 0);
       const undoZoneId = filteredLogs[filteredLogs.length - 2].zoneId;
-      const undoZoneTop = filteredLogs[filteredLogs.length - 2].zoneTop;
-      const undoZoneLeft = filteredLogs[filteredLogs.length - 2].zoneLeft;
+      const undoZone = document.getElementById(undoZoneId);
+      const undoZoneRect = undoZone.getBoundingClientRect();
+      const undoZoneTop = undoZoneRect.top + 2;
+      const undoZoneLeft = undoZoneRect.left + 22;
       const undoZIndex = filteredLogs[filteredLogs.length - 2].zIndex;
       const undoCardImageUrl = filteredLogs[filteredLogs.length - 2].cardImageUrl;
       //const undoanimationType = filteredLogs[filteredLogs.length - 2].animationType;
       const undoTransform = filteredLogs[filteredLogs.length - 2].transform;
       const undoCard = document.getElementById(lastCardId);
-      const undoZone = document.getElementById(undoZoneId);
       // まずcardを非表示にする
       undoCard.style.opacity = '0';
       //早めに向きを変えておく
@@ -2229,7 +2226,7 @@ saveTextBox.addEventListener('click', () => {
 let logs = [];
 const loadLogButton = document.getElementById('loadLogButton');
 loadLogButton.addEventListener('click', () => {
-  window.scrollTo(0, 0);  //ウィンドウ一番上に強制スクロール
+  window.scrollTo(0, 0); //ウィンドウ一番上に強制スクロール
   const secValue = parseInt(document.getElementById('secValue').value);
   const loadTextBox = document.getElementById('loadTextBox');
   const logText = loadTextBox.value;
