@@ -5,7 +5,7 @@ const searchEngineId = 'sample'; // ★検索エンジンIDを設定
 const defaultProtectorUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1yk8LICiBA47bLzbx4B9GIgqb_b2ACfcfLQ&usqp=CAU';
 const defaultBackgroundUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOIniS7XLImZPYWtQWq9o4xQiAme6WXLHv1w&usqp=CAU';
 //音声を再生する
-const audioContext = new(window.AudioContext || window.webkitAudioContext)();
+const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 const soundUndoUrl = 'https://mirayugioh.github.io/yugiohTool/undo.wav';
 const soundActivateUrl = 'https://mirayugioh.github.io/yugiohTool/activate.wav';
 const soundSummonUrl = 'https://mirayugioh.github.io/yugiohTool/summon.wav';
@@ -95,35 +95,33 @@ document.addEventListener('DOMContentLoaded', () => {
       imgElement.id = cardObject.id;
       imgElement.dataset.src = cardObject.imageUrl;
       imgElement.src = cardObject.imageUrl;
-      imgElement.dataset.type = cardObject.type; // data-type 属性を設定
+      imgElement.dataset.type = cardObject.type;
       const sameImageUrlElement = cardBoard.querySelector(`img[data-src="${cardObject.imageUrl}"]`);
+      //同じカード画像がある場合
       if (sameImageUrlElement) {
-        //同じカード画像がある場合
         cardBoard.insertBefore(imgElement, sameImageUrlElement);
       } else {
         const sameTypeElement = cardBoard.querySelector(`[data-type='${cardObject.type}']`);
+        //対象カードの種類が既にcardBoardに存在する場合
         if (sameTypeElement) {
-          //対象カードの種類が既にcardBoardに存在する場合
           cardBoard.insertBefore(imgElement, sameTypeElement);
-        } else {
           //対象のカードの種類が存在しない場合
+        } else {
           const typeKeys = Object.keys(typeOrder);
           const currentIndex = typeKeys.indexOf(cardObject.type);
           const cardElements = cardBoard.querySelectorAll('.cards');
-          // currentIndex よりも大きな値を持つカードの種類を抽出
           const nextTypeElements = Array.from(cardElements).filter(cardElement => typeOrder[cardElement.dataset.type] > currentIndex);
+          //対象のカードの次の種類のカードがある場合
           if (nextTypeElements.length > 0) {
-            //次の種類のカードがあれば、その中で一番若い種類のやつの直前に子要素として追加する
-            let theSmallestTypeElement = nextTypeElements[0]; //最初の要素を一番若いものと仮定して初期化
-            //nextTypeElements配列の中を1つ1つ比較。一番若いものを特定
-            for (let i = 1; i < nextTypeElements.length; i = i+1) {
+            let theSmallestTypeElement = nextTypeElements[0];
+            for (let i = 1; i < nextTypeElements.length; i = i + 1) {
               if (typeOrder[nextTypeElements[i].dataset.type] < typeOrder[theSmallestTypeElement.dataset.type]) {
                 theSmallestTypeElement = nextTypeElements[i];
               }
             }
             cardBoard.insertBefore(imgElement, theSmallestTypeElement);
+            //対象カードの次の種類のカードがない場合
           } else {
-            //次の種類のカードがどこにもなければ、普通に一番最後に追加する
             cardBoard.appendChild(imgElement);
           }
         }
@@ -233,36 +231,33 @@ themeSelect.addEventListener('change', () => {
     imgElement.id = id;
     imgElement.dataset.src = imageUrl;
     imgElement.src = imageUrl;
-    imgElement.dataset.type = type; // data-type 属性を設定
+    imgElement.dataset.type = type;
     imgElement.style.opacity = 0; //データ選択するとき一瞬カードが表示されると見栄え悪いので非表示
     const sameImageUrlElement = cardBoard.querySelector(`img[data-src="${imageUrl}"]`);
+    //同じカード画像がある場合
     if (sameImageUrlElement) {
-      //同じカード画像がある場合
       cardBoard.insertBefore(imgElement, sameImageUrlElement);
     } else {
       const sameTypeElement = cardBoard.querySelector(`[data-type='${type}']`);
+      //同じ種類がある場合
       if (sameTypeElement) {
-        //対象カードの種類が既にcardBoardに存在する場合
         cardBoard.insertBefore(imgElement, sameTypeElement);
       } else {
-        //対象のカードの種類が存在しない場合
         const typeKeys = Object.keys(typeOrder);
         const currentIndex = typeKeys.indexOf(type);
         const cardElements = cardBoard.querySelectorAll('.cards');
-        // currentIndex よりも大きな値を持つカードの種類を抽出
         const nextTypeElements = Array.from(cardElements).filter(cardElement => typeOrder[cardElement.dataset.type] > currentIndex);
+        //次の種類のカードがある場合
         if (nextTypeElements.length > 0) {
-          //次の種類のカードがあれば、その中で一番若い種類のやつの直前に子要素として追加する
-          let theSmallestTypeElement = nextTypeElements[0]; //最初の要素を一番若いものと仮定して初期化
-          //nextTypeElements配列の中を1つ1つ比較。一番若いものを特定
-          for (let i = 1; i < nextTypeElements.length; i = i+1) {
+          let theSmallestTypeElement = nextTypeElements[0];
+          for (let i = 1; i < nextTypeElements.length; i = i + 1) {
             if (typeOrder[nextTypeElements[i].dataset.type] < typeOrder[theSmallestTypeElement.dataset.type]) {
               theSmallestTypeElement = nextTypeElements[i];
             }
           }
           cardBoard.insertBefore(imgElement, theSmallestTypeElement);
+          //次の種類のカードがない場合
         } else {
-          //次の種類のカードがどこにもなければ、普通に一番最後に追加する
           cardBoard.appendChild(imgElement);
         }
       }
@@ -1536,8 +1531,8 @@ themeSelect.addEventListener('change', () => {
   }
 });
 //APIでカードを出現させる
-const inputTextBox = document.getElementById('inputTextBox'); // input要素を取得する
-const cardBoard = document.getElementById('cardBoard'); // img要素を作成するためのdiv
+const inputTextBox = document.getElementById('inputTextBox');
+const cardBoard = document.getElementById('cardBoard');
 const searchButton = document.getElementById('searchButton');
 async function fetchData() {
   const apiUrl = `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${searchEngineId}&q=${encodeURIComponent(inputTextBox.value)}&searchType=image`;
@@ -1547,13 +1542,13 @@ async function fetchData() {
       throw new Error('エラーが発生しました');
     }
     const data = await response.json();
-    const imgElement = document.createElement('img'); // img要素を作成する
-    imgElement.classList.add('cards'); // img要素のclassを設定する
+    const imgElement = document.createElement('img');
+    imgElement.classList.add('cards')
     const newCardId = `card${cardBoard.children.length + 1}`;
-    imgElement.id = newCardId; // img要素のidを設定する
-    imgElement.dataset.src = data.items[0].link; // 画像のURLをdata属性に設定しておく
+    imgElement.id = newCardId;
+    imgElement.dataset.src = data.items[0].link;
     imgElement.src = data.items[0].link;
-    cardBoard.appendChild(imgElement); // img要素をdiv要素に追加
+    cardBoard.appendChild(imgElement);
     const cardData = {
       id: newCardId,
       imageUrl: data.items[0].link
@@ -1572,10 +1567,10 @@ document.addEventListener('click', (event) => {
   const card = event.target.closest('.cards');
   if (!card) return; //カードじゃなければ処理をしない
   if (document.querySelector('.clickedCard') && document.querySelector('.clickedZone')) {
-    //カードもゾーンも押していた場合。処理なし。
+    //カードもゾーンも押していた場合（この分岐になることはないので処理なし）
     return;
   } else if (document.querySelector('.clickedCard') && !document.querySelector('.clickedZone')) {
-    //カードは押していてゾーンを押していない場合
+    //カードのみ押していた場合（カード→カードと押した場合）
     const allCards = document.querySelectorAll('.cards');
     for (const card of allCards) {
       card.style.opacity = 1.0;
@@ -1586,8 +1581,8 @@ document.addEventListener('click', (event) => {
     card.classList.add('clickedCard');
     card.style.opacity = 0.5;
   } else if (!document.querySelector('.clickedCard') && document.querySelector('.clickedZone')) {
-    //カードを押していなくてゾーンは押していた場合
-    window.scrollTo(0, 0); //ウィンドウ一番上に強制スクロール
+    //ゾーンのみ押していた場合（ゾーン→カードと押した場合）
+    window.scrollTo(0, 0);
     const clickedZone = document.querySelector('.clickedZone');
     const zoneRect = clickedZone.getBoundingClientRect();
     const zoneTop = zoneRect.top + 2;
@@ -1613,7 +1608,7 @@ document.addEventListener('click', (event) => {
     card.style.zIndex = ++maxZIndex;
     card.style.opacity = 0.5;
   } else if (!document.querySelector('.clickedCard') && !document.querySelector('.clickedZone')) {
-    //カードもゾーンも押していない場合
+    //何も押していなかった場合
     card.classList.add('clickedCard');
     card.style.opacity = 0.5;
   }
@@ -1630,9 +1625,7 @@ const zones = document.querySelectorAll('.zones');
 for (let i = 0; i < zones.length; i++) {
   const zone = zones[i]; // それぞれのzoneを変数に置く
   zone.addEventListener('click', () => {
-    //カードもゾーンも押していた場合
-    //すなわち、カード→ゾーンと押していた場合。ゾーン→カードと押していた場合は既に別の処理が完了してるので考えない。
-    //ゾーンを置き換える。
+    //カードもゾーンも押していた場合（カード→ゾーン→ゾーンと押した場合）
     if (document.querySelector('.clickedCard') && document.querySelector('.clickedZone')) {
       for (const zone of zones) {
         if (zone.style.opacity === '0.75') {
@@ -1645,19 +1638,16 @@ for (let i = 0; i < zones.length; i++) {
       zone.classList.add('clickedZone');
       zone.style.opacity = 0.75;
     }
-    //カードを押してゾーンを押していない場合
-    //単純に追加する
+    //カードのみ押していた場合（カード→ゾーンと押した場合）
     else if (document.querySelector('.clickedCard') && !document.querySelector('.clickedZone')) {
       zone.classList.add('clickedZone');
       zone.style.opacity = 0.75;
     }
-    //カードを押さずゾーンを押していた場合
-    //処理なし。そもそもこの分岐にならない。ゾーンを置き換えるわけではない。
+    //ゾーンのみ押していた場合（この分岐になることはないので処理なし）
     else if (!document.querySelector('.clickedCard') && document.querySelector('.clickedZone')) {
       return;
     }
     //何も押していなかった場合
-    //そこにあるカードを一覧表示する
     else if (!document.querySelector('.clickedCard') && !document.querySelector('.clickedZone')) {
       const allObjects = document.querySelectorAll('.cards');
       const overlappingObjects = Array.from(allObjects).filter((object) => {
@@ -1667,19 +1657,19 @@ for (let i = 0; i < zones.length; i++) {
       });
       //クリックしたゾーンの上にあるカードが2枚以上なら一覧表示処理する
       if (overlappingObjects.length >= 2) {
-        window.scrollTo(0, 0); //ウィンドウ一番上に強制スクロール
+        window.scrollTo(0, 0);
         zone.classList.add('clickedZone');
         const zoneRect = zone.getBoundingClientRect();
-        const cardHeight = 127; // カードの高さ
+        const cardHeight = 127; //カードの高さ
         const cardWidth = 100; //カードの横幅
-        const spacing = 10; // カード間のスペース
-        const howManyCardsInOneRow = 6; // 1列の中で表示したいカードの数
-        const howManyRows = Math.ceil(overlappingObjects.length / howManyCardsInOneRow); // 列の数
+        const spacing = 10; //カード間のスペース
+        const howManyCardsInOneRow = 6; //1列の中で表示したいカードの数
+        //const howManyRows = Math.ceil(overlappingObjects.length / howManyCardsInOneRow); //列の数
         let topOffset = zoneRect.top + 10; //微調整
         let leftOffset = zoneRect.left + 22; //微調整
         let howManyCardsInOneRowCounter = 0;
         let howManyRowsCounter = 1;
-        overlappingObjects.sort((first, second) => first.style.zIndex - second.style.zIndex) //overlappingObjects配列内のimgタグをzIndexが小さい順に並び替えておく
+        overlappingObjects.sort((first, second) => first.style.zIndex - second.style.zIndex)
         if (zoneRect.left > 460) {
           //対象ゾーンが右側のときは一覧表示は左下方向に広がる
           for (const object of overlappingObjects) {
@@ -1688,13 +1678,13 @@ for (let i = 0; i < zones.length; i++) {
               position: 'absolute',
               left: `${leftOffset}px`,
               top: `${topOffset}px`,
-              zIndex: ++maxZIndex, // 重なっているカードを他のゾーンのカードより上に表示する
+              zIndex: ++maxZIndex,
             });
             object.classList.add('splittedObjects');
             howManyCardsInOneRowCounter++;
             if (howManyCardsInOneRowCounter === howManyCardsInOneRow) {
               topOffset = zoneRect.top + spacing;
-              leftOffset = zoneRect.left - cardWidth * howManyRowsCounter - spacing * 3; // 守備表示のカードを横に並べるとき微調整
+              leftOffset = zoneRect.left - cardWidth * howManyRowsCounter - spacing * 3; //守備表示のカードを横に並べるとき微調整
               howManyRowsCounter++;
               howManyCardsInOneRowCounter = 0;
             } else {
@@ -1731,19 +1721,13 @@ for (let i = 0; i < zones.length; i++) {
 const actionMoveAndGlow = document.getElementById('actionMoveAndGlow');
 actionMoveAndGlow.addEventListener('click', () => {
   if (document.querySelector('.clickedCard') && document.querySelector('.clickedZone')) {
-    //音を鳴らす
     playSound(soundMoveBuffer);
-    //ウィンドウ一番上に強制スクロール
     window.scrollTo(0, 0);
-    //クリックされたものを取得
     const clickedCard = document.querySelector('.clickedCard');
     const clickedZone = document.querySelector('.clickedZone');
-    // まずcardを非表示にする
     clickedCard.style.opacity = '0';
-    // 位置関係を定義する
     clickedCard.style.position = 'absolute';
     clickedZone.style.position = 'relative';
-    //動かす
     const zoneRect = clickedZone.getBoundingClientRect();
     const zoneTop = zoneRect.top + 2;
     const zoneLeft = zoneRect.left + 22;
@@ -1754,17 +1738,13 @@ actionMoveAndGlow.addEventListener('click', () => {
     clickedCard.style.zIndex = ++maxZIndex;
     setTimeout(() => {
       playSound(soundActivateBuffer);
-      // 時間をおいてからcardを表示させる
       clickedCard.style.opacity = '1';
       clickedZone.style.opacity = '0.35';
       clickedCard.src = clickedCard.dataset.src;
-      //光らせる
       clickedCard.classList.add('cardGlowAnimation');
       setTimeout(() => {
         clickedCard.classList.remove('cardGlowAnimation');
-        // カードを動かした後に最新の transform の値を取得する
         const updatedTransform = clickedCard.style.transform;
-        // ログに移動情報を追加
         const log = {
           actionType: 'moveAndGlowCard',
           cardId: clickedCard.id,
@@ -1775,9 +1755,7 @@ actionMoveAndGlow.addEventListener('click', () => {
           transform: updatedTransform
         };
         logs.push(log);
-        // ログの内容をテキストボックスに表示する
         saveTextBox.value = JSON.stringify(logs, null, 2);
-        // リセットする
         for (const element of document.querySelectorAll('.clickedCard')) {
           element.classList.remove('clickedCard');
         }
@@ -1798,9 +1776,7 @@ actionActivateEffect.addEventListener('click', () => {
     let maxZIndex = Math.max(...Array.from(document.querySelectorAll('.cards')).map(obj => obj.style.zIndex));
     clickedCard.style.zIndex = ++maxZIndex;
     clickedCard.style.opacity = '1';
-    //現在の transform の値を取得する
     const currentTransform = clickedCard.style.transform;
-    //ログに移動情報を追加
     const log = {
       actionType: 'glowCard',
       cardId: clickedCard.id,
@@ -1809,13 +1785,11 @@ actionActivateEffect.addEventListener('click', () => {
       transform: currentTransform
     }
     logs.push(log);
-    //ログの内容をテキストボックスに表示する
     saveTextBox.value = JSON.stringify(logs, null, 2);
     setTimeout(() => {
       clickedCard.classList.add('cardGlowAnimation');
       setTimeout(() => {
         clickedCard.classList.remove('cardGlowAnimation');
-        //リセットする
         for (const element of document.querySelectorAll('.clickedCard')) {
           element.classList.remove('clickedCard');
         }
@@ -1827,22 +1801,15 @@ actionActivateEffect.addEventListener('click', () => {
 //カード移動＆拡大（モンスター召喚）
 const actionMoveAndZoom = (imageUrl, rotation) => {
   if (document.querySelector('.clickedCard') && document.querySelector('.clickedZone')) {
-    //音を鳴らす
     playSound(soundSummonBuffer);
-    //ウィンドウ一番上に強制スクロール
     window.scrollTo(0, 0);
-    //クリックされたものを取得
     const clickedCard = document.querySelector('.clickedCard');
     const clickedZone = document.querySelector('.clickedZone');
-    // まずcardを非表示にする
     clickedCard.style.opacity = '0';
-    //早めに向きを変えておく
     clickedCard.src = imageUrl;
     clickedCard.style.transform = `rotate(${rotation}deg)`;
-    // 位置関係を定義する
     clickedCard.style.position = 'absolute';
     clickedZone.style.position = 'relative';
-    // 非表示のまま動かす
     const zoneRect = clickedZone.getBoundingClientRect();
     const zoneTop = zoneRect.top + 2;
     const zoneLeft = zoneRect.left + 22;
@@ -1852,15 +1819,11 @@ const actionMoveAndZoom = (imageUrl, rotation) => {
     let maxZIndex = Math.max(...Array.from(document.querySelectorAll('.cards')).map(obj => obj.style.zIndex));
     clickedCard.style.zIndex = ++maxZIndex;
     setTimeout(() => {
-      // 時間をおいてからcardを表示させる
       clickedCard.style.opacity = '1';
       clickedZone.style.opacity = '0.35';
-      //拡大表示
       clickedCard.classList.add('summonAnimation');
       setTimeout(() => {
-        // カードを動かした後に最新の transform の値を取得する
         const updatedTransform = clickedCard.style.transform;
-        // ログに移動情報を追加
         const log = {
           actionType: 'moveAndZoomCard',
           cardId: clickedCard.id,
@@ -1871,10 +1834,8 @@ const actionMoveAndZoom = (imageUrl, rotation) => {
           transform: updatedTransform
         };
         logs.push(log);
-        // ログの内容をテキストボックスに表示する
         saveTextBox.value = JSON.stringify(logs, null, 2);
         clickedCard.classList.remove('summonAnimation');
-        // リセットする
         for (const element of document.querySelectorAll('.clickedCard')) {
           element.classList.remove('clickedCard');
         }
@@ -1997,14 +1958,13 @@ document.addEventListener('DOMContentLoaded', () => {
   myLifePointBox.innerHTML = myLifePoint;
 });
 myLifePointBox.addEventListener('click', () => {
-  myLifePointBox.innerHTML = `<Input type='textr' id='myNewLifePoint' value='${myLifePoint}' />`;
+  myLifePointBox.innerHTML = `<Input type='text' id='myNewLifePoint' value='${myLifePoint}' />`;
   const myInput = document.getElementById('myNewLifePoint');
   myInput.focus();
   myInput.setSelectionRange(myInput.value.length, myInput.value.length);
 });
 const myLifePointSave = document.getElementById('myLifePointSave');
 myLifePointSave.addEventListener('click', () => {
-  // テキストボックス以外の要素がクリックされた場合に更新処理を実行
   const myNewLifePoint = parseInt(document.getElementById('myNewLifePoint').value);
   myLifePoint = myNewLifePoint;
   myLifePointBox.innerHTML = myLifePoint;
@@ -2023,7 +1983,7 @@ document.addEventListener('DOMContentLoaded', () => {
   opponentLifePointBox.innerHTML = opponentLifePoint;
 });
 opponentLifePointBox.addEventListener('click', () => {
-  opponentLifePointBox.innerHTML = `<Input type='textr' id='opponentNewLifePoint' value='${opponentLifePoint}' />`;
+  opponentLifePointBox.innerHTML = `<Input type='text' id='opponentNewLifePoint' value='${opponentLifePoint}' />`;
   const opponentInput = document.getElementById('opponentNewLifePoint');
   opponentInput.focus();
   opponentInput.setSelectionRange(opponentInput.value.length, opponentInput.value.length);
@@ -2038,27 +1998,23 @@ opponentLifePointSave.addEventListener('click', () => {
     text: opponentLifePoint
   };
   logs.push(log);
-  // ログの内容をテキストボックスに表示する
   saveTextBox.value = JSON.stringify(logs, null, 2);
 });
 //一時コメントを保存する
 const saveCommentButton = document.getElementById('saveCommentButton');
 const commentArea = document.getElementById('commentArea');
 saveCommentButton.addEventListener('click', () => {
-  //音を鳴らす
   playSound(soundMessageBuffer);
-  const content = commentArea.value; // テキストエリアの内容を取得
+  const content = commentArea.value;
   const log = {
     actionType: 'saveComment',
     text: content
   };
   logs.push(log);
-  // ログの内容をテキストボックスに表示する
   saveTextBox.value = JSON.stringify(logs, null, 2);
-  // テキストエリアを空にする
   commentArea.value = '';
 });
-commentArea.addEventListener('input', ()=> {
+commentArea.addEventListener('input', () => {
   const textLength = commentArea.value.length;
   let fontSize = 25; // デフォルトのフォントサイズ
   if (textLength > 120) {
@@ -2072,22 +2028,17 @@ commentArea.addEventListener('input', ()=> {
 const saveAttentionButton = document.getElementById('saveAttentionButton');
 const attentionArea = document.getElementById('attentionArea');
 saveAttentionButton.addEventListener('click', () => {
-  //音を鳴らす
   playSound(soundMessageBuffer);
-  const content = attentionArea.value; // テキストエリアの内容を取得
+  const content = attentionArea.value;
   const log = {
     actionType: 'attentionComment',
     text: content
   };
   logs.push(log);
-  // ログの内容をテキストボックスに表示する
   saveTextBox.value = JSON.stringify(logs, null, 2);
-  // テキストエリアを一瞬だけ点滅させる
-  attentionArea.style.opacity = 0;
+  attentionArea.style.opacity = 0; //一瞬だけ点滅させる
   setTimeout(() => {
-    //最新のテキストを表示する
     attentionArea.value = content;
-    //再度表示する
     attentionArea.style.opacity = 1;
   }, 300);
 });
@@ -2108,11 +2059,12 @@ undoButton.addEventListener('click', () => {
   if (logs[logs.length - 1].actionType === 'moveCard' || logs[logs.length - 1].actionType === 'moveAndZoomCard' || logs[logs.length - 1].actionType === 'moveAndGlowCard') {
     const lastCardId = logs[logs.length - 1].cardId;
     const filteredLogs = logs.filter(log => log.cardId === lastCardId && (log.actionType === 'moveCard' || log.actionType === 'moveAndZoomCard' || log.actionType === 'moveAndGlowCard'));
+    //対象カードの移動履歴がないとき
     if (filteredLogs.length === 1) {
       window.scrollTo(0, 0);
-      const undoZoneId = 'zone25'; // 実際のDOM要素のIDを指定する
+      const undoZoneId = 'zone25'; //対象カードを真ん中のゾーンに置く
       const undoZone = document.getElementById(undoZoneId);
-      const undoZoneRect = undoZone.getBoundingClientRect(); // DOM要素の位置を取得
+      const undoZoneRect = undoZone.getBoundingClientRect();
       const undoZoneTop = undoZoneRect.top + 2;
       const undoZoneLeft = undoZoneRect.left + 22;
       let maxZIndex = Math.max(...Array.from(document.querySelectorAll('.cards')).map(obj => obj.style.zIndex));
@@ -2120,26 +2072,21 @@ undoButton.addEventListener('click', () => {
       const undoCardImageUrl = filteredLogs[filteredLogs.length - 1].cardImageUrl;
       const undoTransform = filteredLogs[filteredLogs.length - 1].transform;
       const undoCard = document.getElementById(lastCardId);
-      // まずcardを非表示にする
       undoCard.style.opacity = '0';
-      //早めに向きを変えておく
       undoCard.src = undoCardImageUrl;
       undoCard.style.transform = undoTransform;
-      // 位置関係を定義する
       undoCard.style.position = 'absolute';
       undoZone.style.position = 'relative';
-      // 非表示のまま動かす
       undoCard.style.top = `${undoZoneTop}px`;
       undoCard.style.left = `${undoZoneLeft}px`;
       undoCard.style.transition = 'top 0.8s ease-in-out, left 0.8s ease-in-out';
       undoCard.style.zIndex = undoZIndex;
       setTimeout(() => {
-        // 時間をおいてからcardを表示させる
         undoCard.style.opacity = '1';
         undoZone.style.opacity = '0.35';
       }, 500);
+      //対象カードの移動履歴があるときは一番最近の場所に戻す
     } else if (filteredLogs.length >= 2) {
-      //ウィンドウ一番上に強制スクロール
       window.scrollTo(0, 0);
       const undoZoneId = filteredLogs[filteredLogs.length - 2].zoneId;
       const undoZone = document.getElementById(undoZoneId);
@@ -2151,41 +2098,27 @@ undoButton.addEventListener('click', () => {
       //const undoanimationType = filteredLogs[filteredLogs.length - 2].animationType;
       const undoTransform = filteredLogs[filteredLogs.length - 2].transform;
       const undoCard = document.getElementById(lastCardId);
-      // まずcardを非表示にする
       undoCard.style.opacity = '0';
-      //早めに向きを変えておく
       undoCard.src = undoCardImageUrl;
       undoCard.style.transform = undoTransform;
-      // 位置関係を定義する
       undoCard.style.position = 'absolute';
       undoZone.style.position = 'relative';
-      // 非表示のまま動かす
       undoCard.style.top = `${undoZoneTop}px`;
       undoCard.style.left = `${undoZoneLeft}px`;
       undoCard.style.transition = 'top 0.8s ease-in-out, left 0.8s ease-in-out';
       undoCard.style.zIndex = undoZIndex;
       setTimeout(() => {
-        // 時間をおいてからcardを表示させる
         undoCard.style.opacity = '1';
         undoZone.style.opacity = '0.35';
-        // 配列をリセットする
-        //undoCard = null;
-        //undoZone = null;
       }, 500);
     }
-    //logs配列から最後の要素を削除
     logs.pop();
-    // ログの内容をテキストボックスに表示する
     saveTextBox.value = JSON.stringify(logs, null, 2);
   } else if (logs[logs.length - 1].actionType === 'glowCard') {
-    // logs配列から最後の要素を削除
     logs.pop();
-    // ログの内容をテキストボックスに表示する
     saveTextBox.value = JSON.stringify(logs, null, 2);
   } else if (logs[logs.length - 1].actionType === 'saveComment' || logs[logs.length - 1].actionType === 'attentionComment') {
-    // logs配列から最後の要素を削除
     logs.pop();
-    // ログの内容をテキストボックスに表示する
     saveTextBox.value = JSON.stringify(logs, null, 2);
   } else if (logs[logs.length - 1].actionType === 'displayMyLifePoint') {
     const filteredLogs = logs.filter(log => log.actionType === 'displayMyLifePoint');
@@ -2196,9 +2129,7 @@ undoButton.addEventListener('click', () => {
       const undoMyLifePoint = filteredLogs[filteredLogs.length - 2].text;
       myLifePointBox.innerHTML = undoMyLifePoint;
     }
-    //logs配列から最後の要素を削除
     logs.pop();
-    // ログの内容をテキストボックスに表示する
     saveTextBox.value = JSON.stringify(logs, null, 2);
   } else if (logs[logs.length - 1].actionType === 'displayOpponentLifePoint') {
     const filteredLogs = logs.filter(log => log.actionType === 'displayOpponentLifePoint');
@@ -2209,9 +2140,7 @@ undoButton.addEventListener('click', () => {
       const undoOpponentLifePoint = filteredLogs[filteredLogs.length - 2].text;
       opponentLifePointBox.innerHTML = undoOpponentLifePoint;
     }
-    //logs配列から最後の要素を削除
     logs.pop();
-    // ログの内容をテキストボックスに表示する
     saveTextBox.value = JSON.stringify(logs, null, 2);
   };
 });
@@ -2219,20 +2148,25 @@ undoButton.addEventListener('click', () => {
 const saveTextBox = document.getElementById('saveTextBox');
 saveTextBox.addEventListener('click', () => {
   saveTextBox.select();
-  saveTextBox.setSelectionRange(0, 99999); // モバイルデバイス用
+  saveTextBox.setSelectionRange(0, 99999);
   document.execCommand('copy');
 });
 //リプレイを再生する
 let logs = [];
 const loadLogButton = document.getElementById('loadLogButton');
+const secList = document.getElementById('secValue');
 loadLogButton.addEventListener('click', () => {
-  window.scrollTo(0, 0); //ウィンドウ一番上に強制スクロール
-  const secValue = parseInt(document.getElementById('secValue').value);
+  const secValue = parseInt(secList.value);
   const loadTextBox = document.getElementById('loadTextBox');
   const logText = loadTextBox.value;
-  // テキストを改行ごとに分割してログとして解釈し、配列に変換する
   logs = JSON.parse(logText);
-  // アニメーションを再生する
+  const expectedTime = logs.length * secValue / 1000;
+  const expectedMinute = Math.floor(expectedTime / 60);
+  const expectedSecond = Math.trunc(expectedTime % 60);
+  const message = `リプレイ時間は、約${expectedMinute}分${expectedSecond}秒です。よろしいですか？`;
+  const confirmed = window.confirm(message);
+  if (!confirmed) return;
+  window.scrollTo(0, 0);
   for (const [index, log] of logs.entries()) {
     //一時的なコメントがずっと表示されるのを防ぐ関数
     const hideComment = () => {
@@ -2259,16 +2193,12 @@ loadLogButton.addEventListener('click', () => {
         playSound(soundMoveBuffer);
         const replayedCard = document.getElementById(cardId);
         const replayedZone = document.getElementById(zoneId);
-        replayedCard.classList.add('cards'); //アニメーション付けるためクラス付与
-        // まずcardを非表示にする
+        replayedCard.classList.add('cards');
         replayedCard.style.opacity = '0';
-        //早めに向きを変えておく
         replayedCard.style.transform = transform;
         replayedCard.src = cardImageUrl;
-        // 位置関係を定義する
         replayedCard.style.position = 'absolute';
         replayedZone.style.position = 'relative';
-        // 非表示のまま動かす
         const zoneRect = replayedZone.getBoundingClientRect();
         const zoneTop = zoneRect.top + 2;
         const zoneLeft = zoneRect.left + 22;
@@ -2277,7 +2207,6 @@ loadLogButton.addEventListener('click', () => {
         replayedCard.style.transition = 'top 0.8s ease-in-out, left 0.8s ease-in-out';
         replayedCard.style.zIndex = zIndex;
         setTimeout(() => {
-          // 時間をおいてからcardを表示させる
           replayedCard.style.opacity = '1';
         }, 500);
       } else if (actionType === 'moveAndZoomCard') {
@@ -2285,16 +2214,12 @@ loadLogButton.addEventListener('click', () => {
         playSound(soundSummonBuffer);
         const replayedCard = document.getElementById(cardId);
         const replayedZone = document.getElementById(zoneId);
-        replayedCard.classList.add('cards'); //アニメーション付けるためクラス付与
-        // まずcardを非表示にする
+        replayedCard.classList.add('cards');
         replayedCard.style.opacity = '0';
-        //早めに向きを変えておく
         replayedCard.style.transform = transform;
         replayedCard.src = cardImageUrl;
-        // 位置関係を定義する
         replayedCard.style.position = 'absolute';
         replayedZone.style.position = 'relative';
-        // 非表示のまま動かす
         const zoneRect = replayedZone.getBoundingClientRect();
         const zoneTop = zoneRect.top + 2;
         const zoneLeft = zoneRect.left + 22;
@@ -2303,9 +2228,7 @@ loadLogButton.addEventListener('click', () => {
         replayedCard.style.transition = 'top 0.8s ease-in-out, left 0.8s ease-in-out';
         replayedCard.style.zIndex = zIndex;
         setTimeout(() => {
-          // 時間をおいてからcardを表示させる
           replayedCard.style.opacity = '1';
-          // 縮小拡大させる
           replayedCard.classList.add(animationType);
           setTimeout(() => {
             replayedCard.classList.remove(animationType);
@@ -2316,16 +2239,12 @@ loadLogButton.addEventListener('click', () => {
         playSound(soundMoveBuffer);
         const replayedCard = document.getElementById(cardId);
         const replayedZone = document.getElementById(zoneId);
-        replayedCard.classList.add('cards'); //アニメーション付けるためクラス付与
-        // まずcardを非表示にする
+        replayedCard.classList.add('cards');
         replayedCard.style.opacity = '0';
-        //早めに向きを変えておく
         replayedCard.src = cardImageUrl;
         replayedCard.style.transform = transform;
-        // 位置関係を定義する
         replayedCard.style.position = 'absolute';
         replayedZone.style.position = 'relative';
-        // 非表示のまま動かす
         const zoneRect = replayedZone.getBoundingClientRect();
         const zoneTop = zoneRect.top + 2;
         const zoneLeft = zoneRect.left + 22;
@@ -2334,11 +2253,8 @@ loadLogButton.addEventListener('click', () => {
         replayedCard.style.transition = 'top 0.8s ease-in-out, left 0.8s ease-in-out';
         replayedCard.style.zIndex = zIndex;
         setTimeout(() => {
-          //音を鳴らす
           playSound(soundActivateBuffer);
-          // 時間をおいてからcardを表示させる
           replayedCard.style.opacity = '1';
-          // 光らせる
           replayedCard.classList.add(animationType);
           setTimeout(() => {
             replayedCard.classList.remove(animationType);
@@ -2348,8 +2264,8 @@ loadLogButton.addEventListener('click', () => {
         hideComment();
         playSound(soundActivateBuffer);
         const replayedCard = document.getElementById(cardId);
-        const replayedZone = document.getElementById(zoneId);
-        replayedCard.classList.add('cards'); //アニメーション付けるためクラス付与
+        //const replayedZone = document.getElementById(zoneId);
+        replayedCard.classList.add('cards');
         replayedCard.style.zIndex = zIndex;
         setTimeout(() => {
           replayedCard.classList.add(animationType);
@@ -2362,7 +2278,7 @@ loadLogButton.addEventListener('click', () => {
         commentArea.value = ''; //一度点滅させる
         commentArea.value = text;
         const textLength = commentArea.value.length;
-        let fontSize = 25; // デフォルトのフォントサイズ
+        let fontSize = 25; //デフォルトのフォントサイズ
         if (textLength > 120) {
           fontSize = 25;
         } else if (textLength > 185) {
