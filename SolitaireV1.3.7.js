@@ -1,3 +1,4 @@
+//20240112
 //APIキー
 const apiKey = 'あ'; // ★APIキーを設定する
 const searchEngineId = 'あ'; // ★検索エンジンIDを設定
