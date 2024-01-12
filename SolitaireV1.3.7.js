@@ -1,6 +1,6 @@
 //APIキー
-const apiKey = 'sample'; // ★APIキーを設定する
-const searchEngineId = 'sample'; // ★検索エンジンIDを設定
+const apiKey = 'あ'; // ★APIキーを設定する
+const searchEngineId = 'あ'; // ★検索エンジンIDを設定
 //デフォルト背景などのカスタマイズ要素
 const defaultProtectorUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1yk8LICiBA47bLzbx4B9GIgqb_b2ACfcfLQ&usqp=CAU';
 const defaultBackgroundUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOIniS7XLImZPYWtQWq9o4xQiAme6WXLHv1w&usqp=CAU';
@@ -274,12 +274,15 @@ themeSelect.addEventListener('change', () => {
     case 'default':
       {
         sessionStorage.clear();
-        createCardElement('card1', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqlWe7M1SX9gH3aOkodpjy1ydBwqGMSyhhsQ&usqp=CAU', 'ef')
-        createCardElement('card2', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6oP6EjWOK6J1vRjzHexMYTsdHEctLiNjsfA&usqp=CAU', 'tr');
-        createCardElement('card3', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAccTgRdl3hQ6t7QBR1KsQMoBGghxvtCjYvA&usqp=CAU', 'xy');
-        createCardElement('card4', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsnOFPVSjsskqFWp0OPjWYCDFxBhLs8h1ycg&usqp=CAU', 'sp');
-        createCardElement('card5', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1-KS0aT7evkr2Aa2_02B48WlQx4TCU74sPw&usqp=CAU', 'ef');
-        createCardElement('card6', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqlWe7M1SX9gH3aOkodpjy1ydBwqGMSyhhsQ&usqp=CAU', 'ef')
+        createCardElement('card1', 'https://yu-gi-oh.jp/images/news/1833_20231215034511_img_1_DwpeAQtSEa4QX6wHJBRch0D9PjVBRwAVipzg4iw86pMRl8Yv7oLdcOcpxwqEipXF.jpg', 'い');
+        createCardElement('card2', 'https://yu-gi-oh.jp/images/news/1833_20231215034511_img_2_DwpeAQtSEa4QX6wHJBRch0D9PjVBRwAVipzg4iw86pMRl8Yv7oLdcOcpxwqEipXF.jpg', 'い');
+        createCardElement('card3', 'https://yu-gi-oh.jp/images/news/1833_20231215034548_img_1_21vFpevVSfhp6qXkvx58LCWTgiP3ObJGS4L5W4OpXvSRZn2KbvImyc4UAHMOiTSy.jpg', 'い');
+        createCardElement('card4', 'https://yu-gi-oh.jp/images/news/1833_20231215034548_img_2_21vFpevVSfhp6qXkvx58LCWTgiP3ObJGS4L5W4OpXvSRZn2KbvImyc4UAHMOiTSy.jpg', 'い');
+        createCardElement('card5', 'https://yu-gi-oh.jp/images/news/1833_20231215034625_img_1_yIIXzUEitrPUpUkBXwLqgYadFyDk7EYwKeH7zLfg0vydDZcYJnFoBdHEQKmNMA7V.jpg', 'い');
+        createCardElement('card6', 'https://yu-gi-oh.jp/images/news/1833_20231215034625_img_2_yIIXzUEitrPUpUkBXwLqgYadFyDk7EYwKeH7zLfg0vydDZcYJnFoBdHEQKmNMA7V.jpg', 'い');
+        createCardElement('card7', 'https://yu-gi-oh.jp/images/news/1833_20231215034659_img_1_iCGjNK58SUc9uagjfLFH1y93kr6puuISuMz7Vu4lCWluuHTNSZSJNRBw85bqoi7Y.jpg', 'い');
+        createCardElement('card8', 'https://yu-gi-oh.jp/images/news/1833_20231215034659_img_2_iCGjNK58SUc9uagjfLFH1y93kr6puuISuMz7Vu4lCWluuHTNSZSJNRBw85bqoi7Y.jpg', 'い');
+        createCardElement('card9', 'https://yu-gi-oh.jp/images/news/1833_20231215034749_img_1_WzobqHtaxRYRSRDnzJqPG1WfWSJiRNulCYCqdvEOAadQsg3hqiuuZGPwWWUokENk.jpg', 'い');
         const optionalProtectorUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1yk8LICiBA47bLzbx4B9GIgqb_b2ACfcfLQ&usqp=CAU';
         sessionStorage.setItem('selectedProtectorUrl', optionalProtectorUrl);
         const optionalBackgroundUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOIniS7XLImZPYWtQWq9o4xQiAme6WXLHv1w&usqp=CAU';
@@ -1524,6 +1527,71 @@ themeSelect.addEventListener('change', () => {
         const optionalProtectorUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0Umdvmv_aAcUIE9DZKQfq3f2APwpawzlOcg&usqp=CAU';
         sessionStorage.setItem('selectedProtectorUrl', optionalProtectorUrl);
         const optionalBackgroundUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTigshN5fnwKH9-MMNzQMAbWN-qvwV8-Q6-TQ&usqp=CAU';
+        sessionStorage.setItem('selectedBackgroundUrl', optionalBackgroundUrl);
+        location.reload();
+      }
+      break;
+    //超重武者
+    case 'superheavySamurai':
+      {
+        sessionStorage.clear();
+        createCardElement('card1', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHKlFRXbkX6fRe3mR-2vlTMTyCN2M7-iTDjQ&usqp=CAU', 'pe');
+        createCardElement('card2', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrv69j8ccmAd00innDPjGVy-TjGRjPLCCG9w&usqp=CAU', 'li');
+        createCardElement('card3', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4R5RWqUa7xg0YUYGWAmiITmgVYUA9AwvhHw&usqp=CAU', 'ef');
+        createCardElement('card4', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOWD84hB-MGiHf5USQCbteZ5MpbPIVLlGINg&usqp=CAU', 'ef');
+        createCardElement('card5', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtX7qgwgpj8FNhquvMRPWlwhIEYWtgYaA_eA&usqp=CAU', 'ef');
+        createCardElement('card6', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpJ6UemkgXUcjBdRyaKY9nqXqaXS9TKbypSQ&usqp=CAU', 'ef');
+        createCardElement('card7', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgZKBnxnPhgA7wuBAzzHWKR-PcH7q-M3A7BA&usqp=CAU', 'ef');
+        createCardElement('card8', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqwapDy_H6w5uW_jgPOUx7JhhR-fZj8kaWBg&usqp=CAU', 'ef');
+        createCardElement('card9', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwhFfRsyM67_VgP-IyS13CunEguXVXFp8KRg&usqp=CAU', 'ef');
+        createCardElement('card10', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtuBawWJoOirkDspGSCIvbwakmfFoWDg-gqQ&usqp=CAU', 'ef');
+        createCardElement('card11', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp4mbHnYkKC47fDG0uFcEATVRVKWZD-4h3QQ&usqp=CAU', 'ef');
+        createCardElement('card12', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQX9UmqxJejPJwGHwIkCUN9lau4Z_LbGen-w&usqp=CAU', 'ef');
+        createCardElement('card13', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUemygLcw2qkM_SGgFDSlwfaf0CEg-GeaGDA&usqp=CAU', 'ef');
+        createCardElement('card14', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrv69j8ccmAd00innDPjGVy-TjGRjPLCCG9w&usqp=CAU', 'li');
+        createCardElement('card15', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYARpg0VIXQ9toT_aPt4MbAPVjtBQxlVampA&usqp=CAU', 'ef');
+        createCardElement('card16', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9INukTWUKOEMar-LDYHOf2_EUs0DaF1dT2Q&usqp=CAU', 'ef');
+        createCardElement('card17', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR07Y0KOfvG1IJiDNCZyce4eangTql1RwxBCQ&usqp=CAU', 'ef');
+        createCardElement('card18', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRBDzXcu_w0Pk9gfXGCIhst1apsjzP26DRdw&usqp=CAU', 'ef');
+        createCardElement('card19', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCwoyRsCf1gMkqLfhShAxlPm5c3n0jM58LKQ&usqp=CAU', 'ef');
+        createCardElement('card20', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmmz3a97U5w0eNCO0NmUG8NioqtDxWbtDrAg&usqp=CAU', 'ef');
+        createCardElement('card21', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwN8BTNlgeI3ut2uBa6mGGhulw8lCltNasYw&usqp=CAU', 'ef');
+        createCardElement('card22', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMOPaCMzAm0Kq_aguii5h4c8d0u2CE5_QKTw&usqp=CAU', 'ef');
+        createCardElement('card23', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyJk9eRxGs3MAh5YRqtLJIjGqhmQOafAYIrA&usqp=CAU', 'ef');
+        createCardElement('card24', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwXubOzamiIfK3MUp4tILai2lRVaLci0s0Gw&usqp=CAU', 'ef');
+        createCardElement('card25', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRdENTS-eTHrXhzQbKOLRVwtYCrUSnANniiQ&usqp=CAU', 'ef');
+        createCardElement('card26', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyg6HPEsM6rFS5u6_W_QJm52iGRotfvfy_-w&usqp=CAU', 'ef');
+        createCardElement('card27', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTel9YLhDQ-x3FtaLVovx_5UD3Q5CJiwv6gCg&usqp=CAU', 'sy');
+        createCardElement('card28', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6h_K5l26r7OX4MjvOBLVMKJRp1US51NpRYQ&usqp=CAU', 'pe');
+        createCardElement('card29', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRX9Bxk5Tme3d30ZcJpAGWCgJEpQuJfdtLRw&usqp=CAU', 'sy');
+        createCardElement('card30', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP0kfHcWkxXQ_RAI4puuFRbu0q9z7JYVBdNQ&usqp=CAU', 'sy');
+        createCardElement('card31', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaPBp-lo51sFlp3MQo6MqTU3TbS-Jpq38PSw&usqp=CAU', 'pe');
+        createCardElement('card32', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVX-cbJnzfSSKfuPNYT_8jX9pAHDK66S8V0A&usqp=CAU', 'sy');
+        createCardElement('card33', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiRqgzPny5goBBwiDTAmq05WcABiJaLN5iiw&usqp=CAU', 'sy');
+        createCardElement('card34', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMe_N6FdVaeiC4SmIYOZlgnqesVuI289rFZA&usqp=CAU', 'sy');
+        createCardElement('card35', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYzFdkRvHux3Yvyb-sm_dfEGZkEKUQe2RYOQ&usqp=CAU', 'sy');
+        createCardElement('card36', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnhxXniqJXHZ9BeRboolDW3nzdZkYZ8GIjQA&usqp=CAU', 'ef');
+        createCardElement('card37', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2LOpaSc1sIdKj5pAGQwGZJ7c4QmWzemffBg&usqp=CAU', 'li');
+        createCardElement('card38', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHCj3nve-AaEHYy4i7hDDeJhAdN6OhJJYJvQ&usqp=CAU', 'li');
+        createCardElement('card39', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSNAlWN8FdqxanzGEbW9KZ78w1pQbPwAwPyQ&usqp=CAU', 'li');
+        createCardElement('card40', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgUqDztcI58RSPAZhYXlwv8o75gnAUg9vQTg&usqp=CAU', 'xy');
+        createCardElement('card41', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq3LMvxhXs8_WwFgaTsJdnNrFcuS9o1LPWPw&usqp=CAU', 'fu');
+        createCardElement('card42', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8RpSGzcZmY8IMuDgWgwiRiukzg8_PMnNTDg&usqp=CAU', 'li');
+        createCardElement('card43', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp6Y65ENynj_zGMBxNhv_Qirc737GZzjw9VQ&usqp=CAU', 'li');
+        createCardElement('card44', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQazJ7URUezBIjzKakLkix0dPQ68HZG2y3ujg&usqp=CAU', 'sy');
+        createCardElement('card45', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyiBjv4NOCE-L3xkPvOyXZjz538ShHAl4EVw&usqp=CAU', 'sy');
+        createCardElement('card46', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRe2pzd3qhUrx_XFS_T-ic_VxWIvD-Oo08sBw&usqp=CAU', 'li');
+        createCardElement('card47', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAGJZWKkh1Z4tuW4oSR6EnNT4uuLvVSw0VWw&usqp=CAU', 'ef');
+        createCardElement('card48', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWzNB3n7rwtCtSzCtDHJCATlIO2XBJl7jzuw&usqp=CAU', 'li');
+        createCardElement('card49', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnSdkx2sLCJ8DzNB6v-KCX3GMVNnlnyzLVsw&usqp=CAU', 'ef');
+        createCardElement('card50', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPxgpNw_Q5aJ46mmKKfLJZsQq5qlLylYmTCA&usqp=CAU', 'pe');
+        createCardElement('card51', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXj-V4_TQVS0gQP1him7dp-odBIgnxqP009Q&usqp=CAU', 'ef');
+        createCardElement('card52', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDYFKwx3ZTbw-jWPHhPP-iV1XXuyYhcB5pFw&usqp=CAU', 'ef');
+        createCardElement('card53', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBhfYggrn46MrzpmfKZWFseAFS4LeHHxhXyA&usqp=CAU', 'ef');
+
+        const optionalProtectorUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKsTtKya677EM6GxKy4MZsF36kdB60WcFTig&usqp=CAU';
+        sessionStorage.setItem('selectedProtectorUrl', optionalProtectorUrl);
+        const optionalBackgroundUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiKepCKZ78CT8egBSu8gOVLjcBw2_Bnkl47w&usqp=CAU';
         sessionStorage.setItem('selectedBackgroundUrl', optionalBackgroundUrl);
         location.reload();
       }
