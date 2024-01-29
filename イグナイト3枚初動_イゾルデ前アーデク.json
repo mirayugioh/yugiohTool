@@ -1,0 +1,384 @@
+[
+  {
+    "actionType": "saveComment",
+    "text": "イグナイト3枚から"
+  },
+  {
+    "actionType": "moveCard",
+    "cardId": "card76",
+    "zoneId": "zone45",
+    "zIndex": "1",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYnX8i7pHdVPW-YmeVtzWVdoLfU5l_RqPpNA&usqp=CAU",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "moveCard",
+    "cardId": "card29",
+    "zoneId": "zone46",
+    "zIndex": "2",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQhDaaFtrQxSEAUq_aiZgatVk_BQ6PBdNSDA&usqp=CAU",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "moveCard",
+    "cardId": "card27",
+    "zoneId": "zone47",
+    "zIndex": "3",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKFM2CMWRtiKLUQf2KuoIvDLfjCAkdh92XXg&usqp=CAU",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "moveAndGlowCard",
+    "cardId": "card76",
+    "zoneId": "zone41",
+    "zIndex": "4",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYnX8i7pHdVPW-YmeVtzWVdoLfU5l_RqPpNA&usqp=CAU",
+    "animationType": "cardGlowAnimation",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "moveAndGlowCard",
+    "cardId": "card27",
+    "zoneId": "zone37",
+    "zIndex": "5",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKFM2CMWRtiKLUQf2KuoIvDLfjCAkdh92XXg&usqp=CAU",
+    "animationType": "cardGlowAnimation",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "glowCard",
+    "cardId": "card76",
+    "zIndex": "6",
+    "animationType": "cardGlowAnimation",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "moveCard",
+    "cardId": "card27",
+    "zoneId": "zone36",
+    "zIndex": "7",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKFM2CMWRtiKLUQf2KuoIvDLfjCAkdh92XXg&usqp=CAU",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "moveCard",
+    "cardId": "card76",
+    "zoneId": "zone36",
+    "zIndex": "8",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYnX8i7pHdVPW-YmeVtzWVdoLfU5l_RqPpNA&usqp=CAU",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "moveCard",
+    "cardId": "card34",
+    "zoneId": "zone47",
+    "zIndex": "9",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhKbpgp8Lq2MPdVcHal3Pd3wmmLXY88NXxZQ&usqp=CAU",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "moveAndGlowCard",
+    "cardId": "card34",
+    "zoneId": "zone41",
+    "zIndex": "10",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhKbpgp8Lq2MPdVcHal3Pd3wmmLXY88NXxZQ&usqp=CAU",
+    "animationType": "cardGlowAnimation",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "glowCard",
+    "cardId": "card34",
+    "zIndex": "11",
+    "animationType": "cardGlowAnimation",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "moveCard",
+    "cardId": "card76",
+    "zoneId": "zone42",
+    "zIndex": "12",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgHzRQa_zODX9IhJs1ClrXEEtcYOuuu_3bLQ&usqp=CAU",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "moveCard",
+    "cardId": "card31",
+    "zoneId": "zone45",
+    "zIndex": "13",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGAKmHVNumCCUjFGuFZ9Vp6T4__aD2h7jJaw&usqp=CAU",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "moveAndGlowCard",
+    "cardId": "card29",
+    "zoneId": "zone37",
+    "zIndex": "14",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQhDaaFtrQxSEAUq_aiZgatVk_BQ6PBdNSDA&usqp=CAU",
+    "animationType": "cardGlowAnimation",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "glowCard",
+    "cardId": "card29",
+    "zIndex": "15",
+    "animationType": "cardGlowAnimation",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "moveCard",
+    "cardId": "card29",
+    "zoneId": "zone36",
+    "zIndex": "16",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQhDaaFtrQxSEAUq_aiZgatVk_BQ6PBdNSDA&usqp=CAU",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "moveCard",
+    "cardId": "card34",
+    "zoneId": "zone36",
+    "zIndex": "17",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhKbpgp8Lq2MPdVcHal3Pd3wmmLXY88NXxZQ&usqp=CAU",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "moveCard",
+    "cardId": "card19",
+    "zoneId": "zone46",
+    "zIndex": "18",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4jyAe3ygkWcvQ-dOh7JxkHUGPbaDKjeR1dg&usqp=CAU",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "glowCard",
+    "cardId": "card34",
+    "zIndex": "19",
+    "animationType": "cardGlowAnimation",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "moveAndZoomCard",
+    "cardId": "card35",
+    "zoneId": "zone33",
+    "zIndex": "22",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpli-ME4SSk0iJ0SB91ExTn1FMePh-75n16w&usqp=CAU",
+    "animationType": "summonAnimation",
+    "transform": "rotate(-90deg)"
+  },
+  {
+    "actionType": "glowCard",
+    "cardId": "card35",
+    "zIndex": "23",
+    "animationType": "cardGlowAnimation",
+    "transform": "rotate(-90deg)"
+  },
+  {
+    "actionType": "moveCard",
+    "cardId": "card32",
+    "zoneId": "zone47",
+    "zIndex": "24",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl8j5ir99iFN9bEkkQogQvQWm1S_ANfNYyRQ&usqp=CAU",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "moveCard",
+    "cardId": "card31",
+    "zoneId": "zone35",
+    "zIndex": "25",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGAKmHVNumCCUjFGuFZ9Vp6T4__aD2h7jJaw&usqp=CAU",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "moveAndZoomCard",
+    "cardId": "card19",
+    "zoneId": "zone31",
+    "zIndex": "26",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4jyAe3ygkWcvQ-dOh7JxkHUGPbaDKjeR1dg&usqp=CAU",
+    "animationType": "summonAnimation",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "glowCard",
+    "cardId": "card19",
+    "zIndex": "27",
+    "animationType": "cardGlowAnimation",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "moveCard",
+    "cardId": "card20",
+    "zoneId": "zone39",
+    "zIndex": "28",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2nhvVhRzidw_yQrfu-WojwW-1B6HycIjYCg&usqp=CAU",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "glowCard",
+    "cardId": "card20",
+    "zIndex": "29",
+    "animationType": "cardGlowAnimation",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "moveAndZoomCard",
+    "cardId": "card20",
+    "zoneId": "zone32",
+    "zIndex": "30",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2nhvVhRzidw_yQrfu-WojwW-1B6HycIjYCg&usqp=CAU",
+    "animationType": "summonAnimation",
+    "transform": "rotate(-90deg)"
+  },
+  {
+    "actionType": "moveCard",
+    "cardId": "card19",
+    "zoneId": "zone35",
+    "zIndex": "31",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4jyAe3ygkWcvQ-dOh7JxkHUGPbaDKjeR1dg&usqp=CAU",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "moveCard",
+    "cardId": "card35",
+    "zoneId": "zone36",
+    "zIndex": "32",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpli-ME4SSk0iJ0SB91ExTn1FMePh-75n16w&usqp=CAU",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "moveAndZoomCard",
+    "cardId": "card71",
+    "zoneId": "zone33",
+    "zIndex": "33",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ_hoocd2L-o6WfU0XoqSHKQzk53P52LrBJQ&usqp=CAU",
+    "animationType": "summonAnimation",
+    "transform": "rotate(-90deg)"
+  },
+  {
+    "actionType": "glowCard",
+    "cardId": "card71",
+    "zIndex": "34",
+    "animationType": "cardGlowAnimation",
+    "transform": "rotate(-90deg)"
+  },
+  {
+    "actionType": "moveCard",
+    "cardId": "card46",
+    "zoneId": "zone35",
+    "zIndex": "35",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR405qiyYFyAZmRb8Q_SklouE6FdIXMfYnzqg&usqp=CAU",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "moveCard",
+    "cardId": "card71",
+    "zoneId": "zone35",
+    "zIndex": "36",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ_hoocd2L-o6WfU0XoqSHKQzk53P52LrBJQ&usqp=CAU",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "moveCard",
+    "cardId": "card20",
+    "zoneId": "zone35",
+    "zIndex": "37",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2nhvVhRzidw_yQrfu-WojwW-1B6HycIjYCg&usqp=CAU",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "moveAndZoomCard",
+    "cardId": "card72",
+    "zoneId": "zone30",
+    "zIndex": "38",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjsufzk7_e8VUweutorLlWqNMYifn_7LHbWw&usqp=CAU",
+    "animationType": "summonAnimation",
+    "transform": "rotate(-90deg)"
+  },
+  {
+    "actionType": "moveAndGlowCard",
+    "cardId": "card32",
+    "zoneId": "zone29",
+    "zIndex": "39",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl8j5ir99iFN9bEkkQogQvQWm1S_ANfNYyRQ&usqp=CAU",
+    "animationType": "cardGlowAnimation",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "moveCard",
+    "cardId": "card33",
+    "zoneId": "zone46",
+    "zIndex": "40",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLe_QoU9GjFdHON-5pl4EFuXZLM1EJXWPvhg&usqp=CAU",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "glowCard",
+    "cardId": "card33",
+    "zIndex": "41",
+    "animationType": "cardGlowAnimation",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "moveAndZoomCard",
+    "cardId": "card33",
+    "zoneId": "zone33",
+    "zIndex": "42",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLe_QoU9GjFdHON-5pl4EFuXZLM1EJXWPvhg&usqp=CAU",
+    "animationType": "summonAnimation",
+    "transform": "rotate(-90deg)"
+  },
+  {
+    "actionType": "moveCard",
+    "cardId": "card20",
+    "zoneId": "zone39",
+    "zIndex": "43",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2nhvVhRzidw_yQrfu-WojwW-1B6HycIjYCg&usqp=CAU",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "glowCard",
+    "cardId": "card20",
+    "zIndex": "44",
+    "animationType": "cardGlowAnimation",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "moveAndZoomCard",
+    "cardId": "card20",
+    "zoneId": "zone31",
+    "zIndex": "45",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2nhvVhRzidw_yQrfu-WojwW-1B6HycIjYCg&usqp=CAU",
+    "animationType": "summonAnimation",
+    "transform": "rotate(-90deg)"
+  },
+  {
+    "actionType": "moveCard",
+    "cardId": "card33",
+    "zoneId": "zone35",
+    "zIndex": "46",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLe_QoU9GjFdHON-5pl4EFuXZLM1EJXWPvhg&usqp=CAU",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "moveCard",
+    "cardId": "card20",
+    "zoneId": "zone35",
+    "zIndex": "47",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2nhvVhRzidw_yQrfu-WojwW-1B6HycIjYCg&usqp=CAU",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "moveAndZoomCard",
+    "cardId": "card21",
+    "zoneId": "zone26",
+    "zIndex": "48",
+    "cardImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7NzYagSBCUwqJnPPq_k-3yxlRItHU8Hn5hA&usqp=CAU",
+    "animationType": "summonAnimation",
+    "transform": "rotate(0deg)"
+  },
+  {
+    "actionType": "glowCard",
+    "cardId": "card21",
+    "zIndex": "49",
+    "animationType": "cardGlowAnimation",
+    "transform": "rotate(0deg)"
+  }
+]
