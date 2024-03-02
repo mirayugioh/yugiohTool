@@ -506,6 +506,7 @@ document.addEventListener('DOMContentLoaded', () => {
       };
       const imgElement = document.createElement('img');
       imgElement.classList.add('cards');
+      imgElement.style.zIndex = 0; //初期表示のカードのzindexをまとめて0にする
       const cardObject = JSON.parse(cardData);
       imgElement.id = cardObject.id;
       imgElement.dataset.src = cardObject.imageUrl;
