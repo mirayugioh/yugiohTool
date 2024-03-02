@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>遊戯王ソリティアツール解説</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+ .container-sticky {
+  height: auto;
+  width: 100%;
+}
+
+.heading-sticky {
+  background: rgba(255, 255, 255, .9);
+  border: 8px solid #ebebeb;
+  margin: 40px 0;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+
+<h1 id="%E5%89%8D%E7%BD%AE%E3%81%8D">前置き</h1>
+<p>こんにちは、遊戯王プレイヤーのmira（@aBhs1hpE9cVWYSW）と申します😀</p>
+<p>遊戯王でカードの動きをシェアするため、<strong>ソリティアツール</strong>を作りました。</p>
+<p>詳しい使い方は下記noteをご覧ください。</p>
+<p><a href="https://note.com/mirayugioh/n/n1081ba18fabe">https://note.com/mirayugioh/n/n1081ba18fabe</a></p>
+<p>この記事では、様々なギミックをどんなコードで実装したか、ちょっとしたメモを共有します。</p>
+<p>「JavaScriptでカードゲームを作りたい」「トランプゲームを作りたい」等と考えている人にとって参考になれば嬉しいです🥺</p>
+<p>内容に誤りがあればご指摘いただけると助かります。</p>
+<hr>
+
+<h1 id="%E3%82%AE%E3%83%9F%E3%83%83%E3%82%AF%E8%AA%AC%E6%98%8E">ギミック説明</h1>
+
+<div class="container-sticky">
+  <p class="heading-sticky">
+    <strong>🎮カードをゾーンに動かす</strong></p>
+<p>動かす動作自体はこのコードで実装しています。</p>
+<p><em>JavaScript</em></p>
+<pre class="hljs"><code><div>clickedCard.style.transition = 'top 0.8s ease-in-out, left 0.8s ease-in-out';
+</div></code></pre>
+<p>対象の要素のstyle属性のtransitionプロパティを変更しています。下記の形式で書くようです。</p>
+<pre class="hljs"><code><div>要素.style.transition = 'CSSプロパティ  トランジジョン時間 アニメーションの進行速度 アニメーション開始までの遅延時間';
+</div></code></pre>
+<p>CSSプロパティは<code>top（上辺）、left（左辺）、opacity（透明度）</code>など。</p>
+<p>トランジジョン時間は「0.8s」や「1000ms」など。</p>
+<p>アニメーションの進行速度は<code>ease、linear、ease-in、ease-out、ease-in-out</code>など。</p>
+<p>※<code>ease-in-out</code>にすることで、アニメが遅く始まって中間部分で早くなって最後にまた遅くなります。</p>
+<p>アニメーション開始までの遅延時間は「0.3s」や「500ms」など。</p>
+<p>clickedCardって？topとleftはどこで決めてるの？となると思うので、もう少し詳細を。</p>
+<p>まずカードクリックの処理についてです。</p>
+<p>document全体にクリックイベントを追加します。</p>
+<p>画面上の適当な場所を押して、それがカードだった場合処理を実行します。</p>
+<p>カードじゃなければ処理をしません。</p>
+<p><em>JavaScript</em></p>
+<pre class="hljs"><code><div>document.addEventListener('click', (event) =&gt; {
+  const card = event.target.closest('.cards');
+  if (!card) return; //カードじゃなければ処理をしない
+  //以下略
+})
+</div></code></pre>
+<p>カードを押した直前に何を押していたかで処理が分かれます。</p>
+<p>何も押していない状態だったら、押されたカードに「clickedCard」というクラスを付与します。</p>
+<p><em>JavaScript</em></p>
+<pre class="hljs"><code><div>card.classList.add('clickedCard');
+</div></code></pre>
+<p>このclickedCardは単なる目印用のクラスです。</p>
+<p><em>CSS</em></p>
+<pre class="hljs"><code><div>.clickedCard {
+  /* 目印用のクラス */
+}
+</div></code></pre>
+<p>次にゾーンをクリックしていきます。</p>
+<p>ゾーンはこのコードで生成しました。</p>
+<p><em>JavaScript</em></p>
+<pre class="hljs"><code><div>for (let i = 1; i &lt;= 49; i++) {
+  const zoneElement = document.createElement('div');
+  zoneElement.classList.add('zones');
+  zoneElement.id = `zone${i}`;
+  zoneBoard.appendChild(zoneElement);
+};
+</div></code></pre>
+<p>7✕7=49個のマス目を作る感じですね。</p>
+<p>ゾーン1つ1つに、ゾーンを押したときのクリックイベントを追加します。</p>
+<p>「zones」というクラスを持つ要素をzones変数に配列として代入します。</p>
+<p>zones配列の0番目の要素は「zone1」、1番目の要素は「zone2」、（省略）、48番目の要素は「zone49」になります。</p>
+<p>したがってforループ文では<code>let i = 0; i &lt; zones.length; i++</code>という記載になります。</p>
+<p><em>JavaScript</em></p>
+<pre class="hljs"><code><div>const zones = document.querySelectorAll('.zones');
+for (let i = 0; i &lt; zones.length; i++) {
+  const zone = zones[i];
+  zone.addEventListener('click', () =&gt; {
+   //略
+  })
+}
+</div></code></pre>
+<p>ゾーンを押したとき、直前に何が押されていたかで処理を分岐させます。</p>
+<p>カードが押されていた場合は「clickedZone」というクラスを付与します。</p>
+<p><em>JavaScript</em></p>
+<pre class="hljs"><code><div>zone.classList.add('clickedZone');
+</div></code></pre>
+<p>このclickedZoneも、clickedZone同様に単なる目印用のクラスです。</p>
+<p><em>CSS</em></p>
+<pre class="hljs"><code><div>.clickedZone {
+  /* 目印用のクラス */
+}
+</div></code></pre>
+<p>カードとゾーンを両方押した状態で「移動」ボタンを押すと、さっき目印のクラスをつけた要素を取得します。</p>
+<p>カードがゾーンの上に動きます。</p>
+<p><em>JavaScript</em></p>
+<pre class="hljs"><code><div>    const clickedCard = document.querySelector('.clickedCard');
+    const clickedZone = document.querySelector('.clickedZone');
+    clickedCard.src = imageUrl;
+    clickedCard.style.transform = `rotate(${rotation}deg)`;
+    clickedCard.style.position = 'absolute';
+    clickedZone.style.position = 'relative';
+    const zoneRect = clickedZone.getBoundingClientRect();
+    const zoneTop = zoneRect.top + 2; //2は微調整した結果の数値
+    const zoneLeft = zoneRect.left + 22; //22も微調整した結果の数値
+    clickedCard.style.top = `${zoneTop}px`;
+    clickedCard.style.left = `${zoneLeft}px`;
+    clickedCard.style.transition = 'top 0.8s ease-in-out, left 0.8s ease-in-out';
+</div></code></pre>
+<p>getBoundingClientRectは<code>オブジェクト.getBoundingClientRect()</code>の形で使い、オブジェクトがブラウザ画面の中でどこにあるか突き止めます。</p>
+<p>戻り値として<code>bottom, left, right, top, width, height, x, y</code>プロパティを返します。</p>
+<p>今回はtopプロパティとleftプロパティを使いました。対象ゾーンの左端と上端の位置がわかれば十分なので。</p>
+
+
+
+</div><div class="container-sticky"><p class="heading-sticky"><strong>✨カードを光らせる</strong></p>
+<p>カードの効果を発動したとき、分かりやすくするためカードを光らせていきます。</p>
+<p>下記のコードで実装しました。</p>
+<p><em>CSS</em></p>
+<pre class="hljs"><code><div>.cardGlowAnimation {
+  animation: cardGlowKeyFrames 1s;
+}
+@keyframes cardGlowKeyFrames {
+  0% {
+    filter: brightness(100%);
+  }
+  50% {
+    filter: brightness(200%);
+  }
+  100% {
+    filter: brightness(100%);
+  }
+}
+</div></code></pre>
+<p><em>JavaScript</em></p>
+<pre class="hljs"><code><div>    setTimeout(() =&gt; {
+      clickedCard.classList.add('cardGlowAnimation');
+      setTimeout(() =&gt; {
+        clickedCard.classList.remove('cardGlowAnimation');
+      }, 1000);
+    }, 150);
+</div></code></pre>
+<p>クラスを一瞬だけ付与して、1000ミリ秒後（1秒後）に<code>setTimeOut</code>で剥がす感じです。</p>
+<p><code>transition</code>はアニメーションの始めと終わりのみ設定できますが、<code>keyframes</code>だと開始・中間・終了を細かく指定してくれます。</p>
+
+
+</div><div class="container-sticky"><p class="heading-sticky"><strong>🎴カードを裏側にする</strong></p>
+<p>下記コードで実装しました。</p>
+<p><em>JavaScript</em></p>
+<pre class="hljs"><code><div>let reversedCardUrl = null;
+</div></code></pre>
+<pre class="hljs"><code><div>document.addEventListener('DOMContentLoaded', () =&gt; {
+  const selectedProtectorUrl = sessionStorage.getItem('selectedProtectorUrl');
+  if (selectedProtectorUrl) {
+    reversedCardUrl = selectedProtectorUrl;
+  } else {
+    reversedCardUrl = defaultProtectorUrl;
+  }
+});
+</div></code></pre>
+<pre class="hljs"><code><div>const actionMove = (imageUrl, rotation) =&gt; {
+  if (document.querySelector('.clickedCard') &amp;&amp; document.querySelector('.clickedZone')) {
+    const clickedCard = document.querySelector('.clickedCard');
+    clickedCard.src = imageUrl;
+  }
+};
+</div></code></pre>
+<pre class="hljs"><code><div>document.getElementById('action0FacedownMove').addEventListener('click', () =&gt; {
+  actionMove(reversedCardUrl, 0);
+});
+</div></code></pre>
+
+
+</div><div class="container-sticky"><p class="heading-sticky"><strong>🎴カードを表側にする</strong></p>
+<p>カードの表側はdatasetを使っています。</p>
+<p>カードを裏側にして表に戻すとき、表のカード画像URLをどこから取得するか悩みました...。</p>
+<p>変数に入れる方法だと書き方が複雑になってしまうため、オブジェクトに固有のURLを持たせたい。</p>
+<p>そんなときにdatasetがあるよと。data属性はHTML5から導入され、カスタムデータ属性と呼ばれているようです。</p>
+<p><code>data-〇〇</code>という形で独自の名前を入れることができます。今回は<code>data-src</code>でURLソース名をdata属性として格納しています。</p>
+<p><em>JavaScript</em></p>
+<pre class="hljs"><code><div>document.getElementById('action0FaceupMove').addEventListener('click', () =&gt; {
+  const clickedCard = document.querySelector('.clickedCard');
+  actionMove(clickedCard.dataset.src, 0);
+});
+</div></code></pre>
+
+
+</div><div class="container-sticky"><p class="heading-sticky"><strong>👆カードを重ねる</strong></p>
+<p>上下の位置関係はZIndexを使って表しました。</p>
+<p>zIndexは要素を重ねる順序を指定するプロパティです。値が大きいほど上に（手前に）表示されます。</p>
+<p>グローバル変数としてmaxZIndexを定義しました。</p>
+<p>カードを移動するたびにその値を1ずつ増やしていきます。最大のzIndexを常に更新し続ける感じです。</p>
+<p><em>JavaScript</em></p>
+<pre class="hljs"><code><div>let maxZIndex = 0;  //maxZIndexを初期化
+</div></code></pre>
+<pre class="hljs"><code><div>let maxZIndex = Array.from(document.querySelectorAll('.cards'))
+.map(obj =&gt; parseInt(obj.style.zIndex)
+.reduce((first, second) =&gt; Math.max(first, second)); 
+card.style.zIndex = ++maxZIndex;
+</div></code></pre>
+<p>何をやっているのか順番に説明します。</p>
+<ol>
+<li><code>document.querySelectorAll('.cards')</code>で「cards」というクラス名を持つ全てのオブジェクトをNodeListオブジェクトとして取得します。</li>
+</ol>
+<p>※NodeListは「DOMノードのコレクションやリストを表すオブジェクト」という意味のようです。</p>
+<ol start="2">
+<li>
+<p><code>Array.from</code>でそのNodeListオブジェクトから配列を作ります。</p>
+</li>
+<li>
+<p><code>map(obj =&gt; parseInt(obj.style.zIndex)</code>で、配列内のオブジェクトからstyle属性のzIndexプロパティを取得して配列として返します。</p>
+</li>
+</ol>
+<p>※parseIntは<code>parseInt(文字列,　基数)</code>の形で書かれ、文字列を（基本）10進数に変換します。</p>
+<p>※map()は<code>配列.map(処理)</code>の形で書かれ、配列にある全ての要素に対して同じ処理を実行し、結果を配列として返します。</p>
+<p>下記のように使われます。</p>
+<p><em>JavaScript</em></p>
+<pre class="hljs"><code><div>const testarray = [1, 4, 9, 16];
+const testmap = testarray.map((x) =&gt; x * 2);
+console.log(testmap);
+//結果：[2, 8, 18, 32]
+</div></code></pre>
+<ol start="4">
+<li><code>reduce((first, second) =&gt; Math.max(first, second)); </code>でzIndex値の配列の中から一番大きな値を取得します。</li>
+</ol>
+<p>reduceは<code>配列.reduce( (最初の値, 次の値) =&gt; 処理 )</code>の形で使われ、配列内の要素に対して処理を繰り返します。</p>
+<p><code>Math.max(first, second)</code>の処理は2つの値を比較して大きい方を残す（返す）ようにしています。</p>
+<p>イメージ的には最初のプレイヤーと次のプレイヤーで戦って強い方が残り、その人と3番目のプレイヤーが戦って強い方が残り、最終的に一番強い人が生き残る感じです。</p>
+<ol start="5">
+<li>そうしてできたmaxZIndexを<code>++maxZIndex</code>で1増やして、cardのstyle属性のzIndexプロパティにします。</li>
+</ol>
+<p>なお、以前はスプレッド構文の<code>...</code>を使っていました。一応共有します。</p>
+<pre class="hljs"><code><div>let maxZIndex = Math.max(...Array.from(document.querySelectorAll('.cards')).map(obj =&gt; obj.style.zIndex));
+</div></code></pre>
+<p>Math.max関数は<code>Math.max(引数)</code>の形で書かれ、引数として与えられた0個以上の数値のうち最大の数を返します。</p>
+<p><code>Math.max(100, 200);</code>と書かれたら200を返します。</p>
+<p>じゃあ<code>[100,　200]</code>という配列を引数にすることはできるのかと言うと、できないらしいです。</p>
+<pre class="hljs"><code><div>const array = [100, 200];
+const max = Math.max(array);
+//エラーになる
+</div></code></pre>
+<p>そこで配列にスプレッド構文の<code>...</code>を使い、配列の中身を取得する必要があります。</p>
+<pre class="hljs"><code><div>const array = [100, 200];
+const max = Math.max(...array);
+//maxは200となる
+</div></code></pre>
+<p>コード内で<code>Math.max(...Array.from</code>と書かれているのはそのためです。</p>
+<p>このスプレッド構文、数が多すぎるとコンピュータが処理しきれなくてエラーになるようなので断念しました。</p>
+
+
+</div><div class="container-sticky"><p class="heading-sticky"><strong>👆ゾーン上のカードを一覧表示する</strong></p>
+<p>さきほど</p>
+<blockquote>
+<p>ゾーンを押したとき、直前に何が押されていたかで処理を分岐させます。
+カードが押されていた場合は「clickedZone」というクラスを付与します。</p>
+</blockquote>
+<p>と述べました。じゃあ何も押されていない状態でゾーンを押した場合はどうなるか。</p>
+<p>そのゾーン上にある全てのカードを一覧表示させます。</p>
+<pre class="hljs"><code><div>//画面上にあるすべてのカードを取得する
+const allObjects = document.querySelectorAll('.cards');
+//その中で対象ゾーンの上に重なっているものを抽出する
+const overlappingObjects = Array.from(allObjects).filter((object) =&gt; {
+  const objectRect = object.getBoundingClientRect();
+  const zoneRect = zone.getBoundingClientRect();
+  return objectRect.top &gt; zoneRect.top - 15 &amp;&amp; objectRect.bottom &lt; zoneRect.bottom + 15 &amp;&amp; objectRect.left &gt; zoneRect.left - 15 &amp;&amp; objectRect.right &lt; zoneRect.right + 15;
+});
+//クリックしたゾーンの上にあるカードが2枚以上なら一覧表示処理する
+if (overlappingObjects.length &gt;= 2) {
+  window.scrollTo(0, 0);
+  zone.classList.add('clickedZone');
+  const zoneRect = zone.getBoundingClientRect();
+  const cardHeight = 127; //カードの高さ
+  const cardWidth = 100; //カードの横幅
+  const spacing = 10; //カード間のスペース
+  const howManyCardsInOneRow = 6; //1列の中で表示したいカードの数
+  let topOffset = zoneRect.top + 10; //微調整
+  let leftOffset = zoneRect.left + 22; //微調整
+  let howManyCardsInOneRowCounter = 0;
+  let howManyRowsCounter = 1;
+  overlappingObjects.sort((first, second) =&gt; first.style.zIndex - second.style.zIndex)
+  if (zoneRect.left &gt; 460) {
+    //対象ゾーンが右側にあるとき一覧表示は左下方向に広がる
+    for (const object of overlappingObjects) {
+      let maxZIndex = Math.max(...Array.from(document.querySelectorAll('.cards')).map(obj =&gt; obj.style.zIndex));
+      Object.assign(object.style, {
+        position: 'absolute',
+        left: `${leftOffset}px`,
+        top: `${topOffset}px`,
+        zIndex: ++maxZIndex,
+      });
+      object.classList.add('splittedObjects');
+      howManyCardsInOneRowCounter++;
+      if (howManyCardsInOneRowCounter === howManyCardsInOneRow) {
+        topOffset = zoneRect.top + spacing;
+        leftOffset = zoneRect.left - cardWidth * howManyRowsCounter - spacing * 3; //守備表示のカードを横に並べるとき微調整
+        howManyRowsCounter++;
+        howManyCardsInOneRowCounter = 0;
+      } else {
+        topOffset = zoneRect.top + cardHeight * howManyCardsInOneRowCounter + spacing;
+      }
+    }
+  } else if (zoneRect.left &lt;= 460) {
+    //対象ゾーンが左側の状態から一覧表示するときは右下方向に広がる
+    for (const object of overlappingObjects) {
+      let maxZIndex = Math.max(...Array.from(document.querySelectorAll('.cards')).map(obj =&gt; obj.style.zIndex));
+      Object.assign(object.style, {
+        position: 'absolute',
+        left: `${leftOffset}px`,
+        top: `${topOffset}px`,
+        zIndex: ++maxZIndex, // 重なっているカードを他のゾーンのカードより上に表示する
+      });
+      object.classList.add('splittedObjects');
+      howManyCardsInOneRowCounter++;
+      if (howManyCardsInOneRowCounter === howManyCardsInOneRow) {
+        topOffset = zoneRect.top + spacing;
+        leftOffset = zoneRect.left + cardWidth * howManyRowsCounter + spacing * 3; // 守備表示のカードを横に並べるとき微調整
+        howManyRowsCounter++;
+        howManyCardsInOneRowCounter = 0;
+      } else {
+        topOffset = zoneRect.top + cardHeight * howManyCardsInOneRowCounter + spacing;
+      }
+    }
+  }
+}
+</div></code></pre>
+
+
+</div><div class="container-sticky"><p class="heading-sticky"><strong>♫効果音を再生する</strong></p>
+<p>音ズレがないよう、非同期処理を採用しました。</p>
+<p><em>JavaScript</em></p>
+<pre class="hljs"><code><div>const audioContext = new(window.AudioContext || window.webkitAudioContext)();
+const soundMoveUrl = 'https://mirayugioh.github.io/yugiohTool/move.wav';
+async function playSound(url) {
+  try {
+    const response = await fetch(url);
+    const data = await response.arrayBuffer();
+    const buffer = await audioContext.decodeAudioData(data);
+    const source = audioContext.createBufferSource();
+    source.buffer = buffer;
+    source.connect(audioContext.destination);
+    source.start();
+  } catch (error) {
+    console.error('音声ファイルのプリロード中にエラーが発生しました: ', error);
+  }
+}
+</div></code></pre>
+<pre class="hljs"><code><div>playSound(soundMoveUrl);
+</div></code></pre>
+<p>順番に説明します。chatGPT等の受け売りなのはご了承ください...。</p>
+<ol>
+<li><code>const audioContext = new(window.AudioContext || window.webkitAudioContext)();</code></li>
+</ol>
+<p>windowオブジェクトのプロパティとしてAudioContextまたはwebkitAudioContextを取得し、そのオブジェクトをインスタンス化します。</p>
+<p>Web Audio APIを使用して音声を操作するための準備です。</p>
+<ol start="2">
+<li><code>const soundMoveUrl = 'https://mirayugioh.github.io/yugiohTool/move.wav';</code></li>
+</ol>
+<p>soundMoveUrlという変数を宣言し、URLを文字列として代入します。</p>
+<ol start="3">
+<li><code>async function playSound(url) </code></li>
+</ol>
+<p>非同期関数playSoundを宣言します。引数にURLをとります。</p>
+<ol start="4">
+<li><code>const response = await fetch(url);</code></li>
+</ol>
+<p>fetch関数でHTTPリクエストを作ってサーバーに投げます。結果をresponseという変数に代入します。</p>
+<p>await演算子を使っているので、この処理が終わるまで次の処理は実行されません。</p>
+<p>responseの中身はこんな感じです。</p>
+<pre class="hljs"><code><div>bodyUsed: true
+headers: Headers {}
+ok: true
+redirected: false
+status: 200
+statusText: &quot;&quot;
+type: &quot;cors&quot;
+url: &quot;https://mirayugioh.github.io/yugiohTool/activate.wav&quot;
+[[Prototype]] 
+arrayBuffer: ƒ arrayBuffer()
+blob: ƒ blob()
+clone: ƒ clone()
+formData: ƒ formData()
+json: ƒ json()
+text: ƒ text()
+</div></code></pre>
+<ol start="5">
+<li><code>const data = await response.arrayBuffer();</code></li>
+</ol>
+<p>response変数にはurlとかtypeとか色々ありますが、その中でarrayBufferオブジェクトをdata変数に代入します。</p>
+<p>data変数の中身はこんな感じです。</p>
+<pre class="hljs"><code><div>byteLength: 0
+detached: true
+maxByteLength: 0
+resizable: false
+</div></code></pre>
+<ol start="6">
+<li><code>const buffer = await audioContext.decodeAudioData(data);</code></li>
+</ol>
+<p>AudioContextオブジェクトのdecodeAudioDataメソッドを使い、ArrayBuffer形式の音声データをデコードします。それをbuffer変数に代入します。</p>
+<p>buffer変数の中身はこんな感じです。</p>
+<pre class="hljs"><code><div>duration: 2.9275
+length: 140520
+numberOfChannels: 2
+sampleRate: 48000
+</div></code></pre>
+<ol start="7">
+<li><code>const source = audioContext.createBufferSource();</code></li>
+</ol>
+<p>AudioContextオブジェクトのcreateBufferSourceメソッドを使い、新しいAudioBufferSourceNodeオブジェクトを生成します。</p>
+<p>これは音声ファイルを再生するためのノードです。source変数に代入します。</p>
+<p>source変数の中身はこんな感じです。</p>
+<pre class="hljs"><code><div>buffer: AudioBuffer {
+  length: 140520, 
+  duration: 2.9275, 
+  sampleRate: 48000, 
+  numberOfChannels: 2
+}
+channelCount: 2
+channelCountMode: &quot;max&quot;
+channelInterpretation: &quot;speakers&quot;
+context: AudioContext {
+  baseLatency: 0.005333333333333333, 
+  outputLatency: 0.016, 
+  sinkId: '', 
+  onsinkchange: null, 
+  destination: AudioDestinationNode, …
+}
+detune: AudioParam {
+  value: 0, 
+  automationRate: 'k-rate', 
+  defaultValue: 0, 
+  minValue: -3.4028234663852886e+38, 
+  maxValue: 3.4028234663852886e+38
+}
+loop: false
+loopEnd: 0
+loopStart: 0
+numberOfInputs: 0
+numberOfOutputs: 1
+onended: null
+playbackRate: AudioParam {
+  value: 1, 
+  automationRate: 'k-rate', 
+  defaultValue: 1, 
+  minValue: -3.4028234663852886e+38, 
+  maxValue: 3.4028234663852886e+38
+}
+[[Prototype]]: AudioBufferSourceNode
+</div></code></pre>
+<ol start="8">
+<li><code>source.buffer = buffer;</code></li>
+</ol>
+<p>source変数のbufferプロパティは、先ほど宣言したbuffer変数とします。</p>
+<ol start="9">
+<li><code>source.connect(audioContext.destination);</code></li>
+</ol>
+<p>AudioNodeオブジェクトのconnectメソッドを使い、sourceをAudioContextのdestinationプロパティに接続します。</p>
+<ol start="10">
+<li><code>source.start();</code></li>
+</ol>
+<p>AudioNodeオブジェクトのstartメソッドを使い、sourceを再生します。</p>
+
+
+</div><div class="container-sticky"><p class="heading-sticky"><strong>🌍カードをGoogle検索APIで出現させる</strong></p>
+<p>Googleカスタム検索APIを使って、ソリティア作成中に好きなカードを呼び出せるようにしました。</p>
+<p><em>JavaScript</em></p>
+<pre class="hljs"><code><div>const apiKey = 'AbCdEfGhIjKlMnOpQrStUv'; //sample
+const searchEngineId = '123qwe34ty56ui7'; //sample
+</div></code></pre>
+<pre class="hljs"><code><div>const inputTextBox = document.getElementById('inputTextBox');
+const cardBoard = document.getElementById('cardBoard');
+const searchButton = document.getElementById('searchButton');
+async function fetchData() {
+  const apiUrl = `https://www.googleapis.com/customsearch/v1?key=${apiKey}&amp;cx=${searchEngineId}&amp;q=${encodeURIComponent(inputTextBox.value)}&amp;searchType=image`;
+  try {
+    const response = await fetch(apiUrl);
+    if (!response.ok) {
+      throw new Error('エラーが発生しました');
+    }
+    const data = await response.json();
+    const imgElement = document.createElement('img');
+    imgElement.classList.add('cards')
+    const newCardId = `card${cardBoard.children.length + 1}`;
+    imgElement.id = newCardId;
+    imgElement.dataset.src = data.items[0].link;
+    imgElement.src = data.items[0].link;
+    cardBoard.appendChild(imgElement);
+    const cardData = {
+      id: newCardId,
+      imageUrl: data.items[0].link
+    };
+    sessionStorage.setItem(newCardId, JSON.stringify(cardData));
+  } catch (error) {
+    alert('カード生成ができませんでした');
+  }
+}
+searchButton.addEventListener('click', () =&gt; {
+  fetchData();
+});
+</div></code></pre>
+<p>わかりづらいかもしれないので具体例で。「darkMagician」で検索したとしましょう。</p>
+<pre class="hljs"><code><div>https://www.googleapis.com/customsearch/v1?key=AbCdEfGhIjKlMnOpQrStUv&amp;cx=123qwe34ty56ui7&amp;q=darkMagician&amp;searchType=image
+</div></code></pre>
+<p>このようなapiUrlが作られます。</p>
+<pre class="hljs"><code><div>const response = await fetch(apiUrl);
+</div></code></pre>
+<p>fetch関数でHTTPリクエストを作成してサーバーに投げます。結果をresponseという変数に代入します。</p>
+<pre class="hljs"><code><div>const data = await response.json();
+</div></code></pre>
+<p>このコードでdataという変数を宣言し、さきほどのresponse変数からJSON形式のデータを取得して代入します。</p>
+<pre class="hljs"><code><div>data.items[0].link;
+</div></code></pre>
+<p>このコードでdata変数にあるJSONデータからitemsという配列の0番目の要素を対象にし、そのlinkプロパティを取得します。</p>
+<p>data変数の中身が気になったので見てみます。</p>
+<pre class="hljs"><code><div>console.log(data);
+</div></code></pre>
+<p>このコードで確認。以下はGoogle検索APIページの受け売りです。</p>
+<p><a href="https://developers.google.com/custom-search/v1/reference/rest/v1/Search">https://developers.google.com/custom-search/v1/reference/rest/v1/Search</a></p>
+<p>dataには大きく分けて7つのオブジェクトが入っています。</p>
+<pre class="hljs"><code><div>kind オブジェクトを表す識別子。customsearch#searchという文字列が表示される。
+url Google検索APIのテンプレートを定義するOpenSearch URL要素。
+queries 検索語句。
+context クエリが使われた検索エンジンの名前。
+searchInformation この検索に関するメタデータ。検索時間や検索結果の合計など。
+spelling 検索語句を修正してカプセル化するもの。
+Items 検索した結果のセット。
+</div></code></pre>
+<p>この中の「Items」にはさらに0番目〜9番目のオブジェクトが入っています。0番目は一番最初の検索結果ということです。</p>
+<p>実際こんな感じです。↓</p>
+<pre class="hljs"><code><div>0:Object
+  kind:customsearch#result
+  title:Dark Magician | Yu-Gi-Oh! Wiki | Fandom
+  htmlTitle:&lt;b&gt;Dark Magician&lt;/b&gt; | &lt;b&gt;Yu-Gi-Oh&lt;/b&gt;! Wiki | Fandom
+  link:https://static.wikia.nocookie.net/yugioh/images/b/bf/DarkMagician-HAC1-EN-DUPR-1E.png/revision/latest?cb=20220311231945
+  displayLink:yugioh.fandom.com
+  snippet:Dark Magician | Yu-Gi-Oh! Wiki | Fandom
+  htmlSnippet:&lt;b&gt;Dark Magician&lt;/b&gt; | &lt;b&gt;Yu-Gi-Oh&lt;/b&gt;! Wiki | Fandom
+  mime:image/
+  fileFormat:image/
+  image:Object
+  contextLink:https://yugioh.fandom.com/wiki/Dark_Magician
+  height:688
+  width:470
+  byteSize:840570
+  thumbnailLink:https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_Iy6_GW8DxXfX0ksGEEIbGHEhJySOMannvAswsr5xImBAbNc0OWAJ2Rs&amp;s
+  thumbnailHeight:139
+  thumbnailWidth:95
+</div></code></pre>
+<p>この中のlinkプロパティ（=画像URL）を取得しているわけです。</p>
+<p>やろうと思えば<code>link</code>だけでなく<code>height（画像の縦幅）</code>や<code>thumbnailLink（サムネイルの画像URL）</code>も取得できるかも。</p>
+
+
+</div><div class="container-sticky"><p class="heading-sticky"><strong>👀テーマカード内で種類ごとに並び替える</strong></p>
+<p><em>HTML</em></p>
+<pre class="hljs"><code><div>    &lt;label for='themeSelect'&gt;使いたいテーマを選ぶ： &lt;/label&gt;
+    &lt;select id='themeSelect'&gt;
+      &lt;option value='none'&gt;（選択）&lt;/option&gt;
+      &lt;option value='default'&gt;デフォルト&lt;/option&gt;
+    &lt;/select&gt;
+</div></code></pre>
+<p><em>JavaScript</em></p>
+<pre class="hljs"><code><div>  const typeOrder = {
+    no: 1,
+    //normal通常モンスター
+    ef: 2,
+    //effect効果モンスター
+    ri: 3,
+    //ritual儀式モンスター
+    pe: 4,
+    //pendulumペンデュラムモンスター
+    fu: 5,
+    //fusion融合モンスター
+    sy: 6,
+    //synchroシンクロモンスター
+    xy: 7,
+    //xyzエクシーズモンスター
+    li: 8,
+    //linkリンクモンスター
+    sp: 9,
+    //spell魔法カード
+    tr: 10,
+    //trapトラップカード
+    to: 11,
+    //tokenトークン
+    ot: 12,
+    //otherその他。他の種類も追加可能
+  };
+</div></code></pre>
+<pre class="hljs"><code><div>  const createCardElement = (id, imageUrl, type) =&gt; {
+    const imgElement = document.createElement('img');
+    imgElement.classList.add('cards');
+    imgElement.id = id;
+    imgElement.dataset.src = imageUrl;
+    imgElement.src = imageUrl;
+    imgElement.dataset.type = type;
+    const sameImageUrlElement = cardBoard.querySelector(`img[data-src=&quot;${imageUrl}&quot;]`);
+    //すでに同じカード画像がある場合
+    if (sameImageUrlElement) {
+      cardBoard.insertBefore(imgElement, sameImageUrlElement);
+    } else {
+      const sameTypeElement = cardBoard.querySelector(`[data-type='${type}']`);
+      //すでに同じ種類のカードがある場合
+      if (sameTypeElement) {
+        cardBoard.insertBefore(imgElement, sameTypeElement);
+      } else {
+        const typeKeys = Object.keys(typeOrder);
+        const currentIndex = typeKeys.indexOf(type);
+        const cardElements = cardBoard.querySelectorAll('.cards');
+        const nextTypeElements = Array.from(cardElements).filter(cardElement =&gt; typeOrder[cardElement.dataset.type] &gt; currentIndex);
+        //次の種類のカードがある場合
+        if (nextTypeElements.length &gt; 0) {
+          let theSmallestTypeElement = nextTypeElements[0];
+          for (let i = 1; i &lt; nextTypeElements.length; i = i + 1) {
+            if (typeOrder[nextTypeElements[i].dataset.type] &lt; typeOrder[theSmallestTypeElement.dataset.type]) {
+              theSmallestTypeElement = nextTypeElements[i];
+            }
+          }
+          cardBoard.insertBefore(imgElement, theSmallestTypeElement);
+          //次の種類のカードすらない場合
+        } else {
+          cardBoard.appendChild(imgElement);
+        }
+      }
+    }
+    sessionStorage.setItem(id, JSON.stringify(cardData));
+  };
+</div></code></pre>
+<pre class="hljs"><code><div>  switch (selectedOption) {
+    //デフォルト
+  case 'default':
+    {
+      sessionStorage.clear();
+      createCardElement('card1', 'https://sample.jpg', 'no');
+      const optionalProtectorUrl = 'https://sample.jpg';
+      sessionStorage.setItem('selectedProtectorUrl', optionalProtectorUrl);
+      const optionalBackgroundUrl = 'https://sample.jpg';
+      sessionStorage.setItem('selectedBackgroundUrl', optionalBackgroundUrl);
+      location.reload();
+    }
+    break;
+  }
+});
+</div></code></pre>
+
+
+</div><div class="container-sticky"><p class="heading-sticky"><strong>💻ログを残す</strong></p>
+<pre class="hljs"><code><div>let logs = [];
+</div></code></pre>
+<pre class="hljs"><code><div>const log = {
+  actionType: 'moveAndGlowCard',
+  cardId: clickedCard.id,
+  zoneId: clickedZone.id,
+  zIndex: clickedCard.style.zIndex,
+  cardImageUrl: clickedCard.src,
+  animationType: 'cardGlowAnimation',
+  transform: updatedTransform
+};
+logs.push(log);
+saveTextBox.value = JSON.stringify(logs, null, 2);
+</div></code></pre>
+
+
+</div><div class="container-sticky"><p class="heading-sticky"><strong>💻操作を取り消す（1手戻す）</strong></p>
+<p>やり直しボタンを押したとき、最後のログが何であるかによって分岐します。
+配列は0番目から数えるので、<code>logs[logs.length - 1]</code>が最後のログになります。。</p>
+<pre class="hljs"><code><div>  if (logs[logs.length - 1].actionType === 'moveCard' || logs[logs.length - 1].actionType === 'moveAndZoomCard' || logs[logs.length - 1].actionType === 'moveAndGlowCard') {
+    const lastCardId = logs[logs.length - 1].cardId;
+    const filteredLogs = logs.filter(log =&gt; log.cardId === lastCardId &amp;&amp; (log.actionType === 'moveCard' || log.actionType === 'moveAndZoomCard' || log.actionType === 'moveAndGlowCard'));
+    //対象カードの移動履歴がないとき
+    if (filteredLogs.length === 1) {
+      window.scrollTo(0, 0);
+      const undoZoneId = 'zone25'; //対象カードを真ん中のゾーンに置く
+      const undoZone = document.getElementById(undoZoneId);
+      const undoZoneRect = undoZone.getBoundingClientRect();
+      const undoZoneTop = undoZoneRect.top + 2;
+      const undoZoneLeft = undoZoneRect.left + 22;
+      let maxZIndex = Math.max(...Array.from(document.querySelectorAll('.cards')).map(obj =&gt; obj.style.zIndex));
+      const undoZIndex = ++maxZIndex;
+      const undoCardImageUrl = filteredLogs[filteredLogs.length - 1].cardImageUrl;
+      const undoTransform = filteredLogs[filteredLogs.length - 1].transform;
+      const undoCard = document.getElementById(lastCardId);
+      undoCard.style.opacity = '0';
+      undoCard.src = undoCardImageUrl;
+      undoCard.style.transform = undoTransform;
+      undoCard.style.position = 'absolute';
+      undoZone.style.position = 'relative';
+      undoCard.style.top = `${undoZoneTop}px`;
+      undoCard.style.left = `${undoZoneLeft}px`;
+      undoCard.style.transition = 'top 0.8s ease-in-out, left 0.8s ease-in-out';
+      undoCard.style.zIndex = undoZIndex;
+      setTimeout(() =&gt; {
+        undoCard.style.opacity = '1';
+        undoZone.style.opacity = '0.35';
+      }, 500);
+    //対象カードの移動履歴があるときは一番最近の場所に戻す
+    } else if (filteredLogs.length &gt;= 2) {
+      window.scrollTo(0, 0);
+      const undoZoneId = filteredLogs[filteredLogs.length - 2].zoneId;
+      const undoZone = document.getElementById(undoZoneId);
+      const undoZoneRect = undoZone.getBoundingClientRect();
+      const undoZoneTop = undoZoneRect.top + 2;
+      const undoZoneLeft = undoZoneRect.left + 22;
+      const undoZIndex = filteredLogs[filteredLogs.length - 2].zIndex;
+      const undoCardImageUrl = filteredLogs[filteredLogs.length - 2].cardImageUrl;
+      const undoTransform = filteredLogs[filteredLogs.length - 2].transform;
+      const undoCard = document.getElementById(lastCardId);
+      undoCard.style.opacity = '0';
+      undoCard.src = undoCardImageUrl;
+      undoCard.style.transform = undoTransform;
+      undoCard.style.position = 'absolute';
+      undoZone.style.position = 'relative';
+      undoCard.style.top = `${undoZoneTop}px`;
+      undoCard.style.left = `${undoZoneLeft}px`;
+      undoCard.style.transition = 'top 0.8s ease-in-out, left 0.8s ease-in-out';
+      undoCard.style.zIndex = undoZIndex;
+      setTimeout(() =&gt; {
+        undoCard.style.opacity = '1';
+        undoZone.style.opacity = '0.35';
+      }, 500);
+    }
+    logs.pop();
+    saveTextBox.value = JSON.stringify(logs, null, 2);
+  }
+</div></code></pre>
+
+
+</div><div class="container-sticky"><p class="heading-sticky"><strong>💻ログを再生する</strong></p>
+<pre class="hljs"><code><div>loadLogButton.addEventListener('click', () =&gt; {
+  const secValue = parseInt(secList.value);
+  const loadTextBox = document.getElementById('loadTextBox');
+  const logText = loadTextBox.value;
+  logs = JSON.parse(logText);
+  const expectedTime = logs.length * secValue / 1000;
+  const expectedMinute = Math.floor(expectedTime / 60);
+  const expectedSecond = Math.trunc(expectedTime % 60);
+  const message = `リプレイ時間は、約${expectedMinute}分${expectedSecond}秒です。よろしいですか？`;
+  const confirmed = window.confirm(message);
+  if (!confirmed) return;
+  window.scrollTo(0, 0);
+  for (const [index, log] of logs.entries()) {
+    //指定した時間間隔でログ再生する
+    setTimeout(() =&gt; {
+      const {
+        actionType,
+        cardId,
+        zoneId,
+        zIndex,
+        cardImageUrl,
+        animationType,
+        transform,
+        text
+      } = log;
+      if (actionType === 'moveCard') {
+        //省略
+      } else if (actionType === 'moveAndZoomCard') {
+        //省略
+      } else if (actionType === 'moveAndGlowCard') {
+        //省略
+      } else if (actionType === 'glowCard') {
+        //省略
+      } else if (actionType === 'saveComment') {
+        //省略
+      } else if (actionType === 'attentionComment') {
+        //省略
+      } else if (actionType === 'displayMyLifePoint') {
+        //省略
+      } else if (actionType === 'displayOpponentLifePoint') {
+        //省略
+      }
+    }, index * secValue);
+  }
+});
+</div></code></pre>
+
+<h1 id="%E6%8C%AF%E3%82%8A%E8%BF%94%E3%82%8A">振り返り</h1>
+<p>いい感じに実装できたんじゃないかなと思います。</p>
+<p>あとは複数選択のやり方を身に付けたいです。。。javascriptだと長押しに対応していないみたいで。</p>
+<p>ご指摘や感想があればTwitter等で教えていただけると助かります。</p>
+
+</body>
+</html>
