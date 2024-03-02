@@ -2072,6 +2072,7 @@ async function fetchData() {
     console.log(data);
     const imgElement = document.createElement('img');
     imgElement.classList.add('cards')
+    imgElement.style.zIndex = 0;
     const newCardId = `card${cardBoard.children.length + 1}`;
     imgElement.id = newCardId;
     imgElement.dataset.src = data.items[0].link;
