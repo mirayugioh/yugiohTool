@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/xcode.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+<script>
+hljs.initHighlightingOnLoad();
+</script>
+</head>
+<body>
+<pre>
+<code>
+//リプレイ再生後、カードを種類ごとに並び替える
+const sortAllCardsButton = document.createElement('button');
+sortAllCardsButton.textContent = '画面上のカードを一覧表示';
+document.getElementById('searchBoard').appendChild(sortAllCardsButton);
+sortAllCardsButton.addEventListener('click', () => {
+  const message = 'リプレイ再生後に使用カードを並べる機能です。よろしいですか？';
+  const confirmed = window.confirm(message);
+  if (!confirmed) return;
+  //ゾーンの装飾を隠す
+  const decoratingItemsElements = document.querySelectorAll('.decoratingItems');
+  decoratingItemsElements.forEach(function(element) {
+    element.style.display = 'none';
+  });
+  const decoratingCardsElements = document.querySelectorAll('.decoratingCards');
+  decoratingCardsElements.forEach(function(element) {
+    element.style.display = 'none';
+  });
+  const zoneElements = document.querySelectorAll('.zones');
+  zoneElements.forEach(function(element) {
+    element.style.opacity = '0';
+    element.style.border = '0px';
+  });
+  //ゾーン上のカードを取得
+  const allCards = document.querySelectorAll('.cards');
+  const allCardsOnZoneBoard = Array.from(allCards).filter((object) => {
+    const objectRect = object.getBoundingClientRect();
+    const zoneBoardRect = zoneBoard.getBoundingClientRect();
+    const bufferPixel = 15; //余幅
+    return objectRect.top > zoneBoardRect.top - bufferPixel &&
+      objectRect.bottom < zoneBoardRect.bottom + bufferPixel &&
+      objectRect.left > zoneBoardRect.left - bufferPixel &&
+      objectRect.right < zoneBoardRect.right + bufferPixel;
+  });
+  const typeOrder = {
+    no: 1, //normal通常モンスター
+    ef: 2, //effect効果モンスター
+    ri: 3, //ritual儀式モンスター
+    pe: 4, //pendulumペンデュラムモンスター
+    fu: 5, //fusion融合モンスター
+    sy: 6, //synchroシンクロモンスター
+    xy: 7, //xyzエクシーズモンスター
+    li: 8, //linkリンクモンスター
+    sp: 9, //spell魔法カード
+    tr: 10, //trapトラップカード
+    to: 11, //tokenトークン
+    ot: 12, //otherその他。他の種類も追加可能
+  };
+  const sortedAllCardsOnZoneBoard = allCardsOnZoneBoard.sort(
+    (first, second) => typeOrder[first.dataset.type] - typeOrder[second.dataset.type]
+  );
+  console.log('sortedAllCardsOnZoneBoardです。{sortedAllCardsOnZoneBoard}');
+  //メインデッキに入るモンスター群をグループAとする
+  const cardGroupA = sortedAllCardsOnZoneBoard.filter(card => ['no', 'ef', 'ri', 'pe'].includes(card.dataset.type));
+  //エクストラデッキに入るモンスター群をグループBとする
+  const cardGroupB = sortedAllCardsOnZoneBoard.filter(card => ['fu', 'sy', 'xy', 'li'].includes(card.dataset.type));
+  //メインデッキに入る魔法罠群をグループCとする
+  const cardGroupC = sortedAllCardsOnZoneBoard.filter(card => ['sp', 'tr'].includes(card.dataset.type));
+  //その他をグループDとする
+  const cardGroupD = sortedAllCardsOnZoneBoard.filter(card => ['to', 'ot'].includes(card.dataset.type));
+  //移動する処理
+  const moveCard = (card, zone) => {
+    card.src = card.dataset.src;
+    card.style.transform = 'rotate(0deg)';
+    card.style.position = 'absolute';
+    zone.style.position = 'relative';
+    const zoneRect = zone.getBoundingClientRect();
+    const zoneTop = zoneRect.top + 2;
+    const zoneLeft = zoneRect.left + 22;
+    card.style.top = `${zoneTop}px`;
+    card.style.left = `${zoneLeft}px`;
+    card.style.transition = 'top 0.8s ease-in-out, left 0.8s ease-in-out';
+  }
+  //定数設定
+  const boardLineLength = 7; //ゾーンの１行のマス目の数
+  //グループAの移動を行う
+  window.scrollTo(0, 0);
+  for (let i = 0; i < cardGroupA.length; i++) {
+    const targetedCard = cardGroupA[i];
+    const targetedZone = document.getElementById(`zone${i+1}`);
+    moveCard(targetedCard, targetedZone);
+  }
+  //グループBの移動を行う
+  const FirstPlaceOfCardGroupB = boardLineLength * (Math.ceil(cardGroupA.length / boardLineLength)) + 1;
+  for (let i = 0; i < cardGroupB.length; i++) {
+    const targetedCard = cardGroupB[i];
+    const targetedZone = document.getElementById(`zone${FirstPlaceOfCardGroupB + i}`);
+    moveCard(targetedCard, targetedZone);
+  }
+  //グループCの移動を行う
+  const FirstPlaceOfCardGroupC = boardLineLength * (
+    Math.ceil(cardGroupA.length / boardLineLength) +
+    Math.ceil(cardGroupB.length / boardLineLength)
+  ) + 1;
+  for (let i = 0; i < cardGroupC.length; i++) {
+    const targetedCard = cardGroupC[i];
+    const targetedZone = document.getElementById(`zone${FirstPlaceOfCardGroupC + i}`);
+    moveCard(targetedCard, targetedZone);
+  }
+  //グループDの移動を行う
+  const FirstPlaceOfCardGroupD = boardLineLength * (
+    Math.ceil(cardGroupA.length / boardLineLength) +
+    Math.ceil(cardGroupB.length / boardLineLength) +
+    Math.ceil(cardGroupC.length / boardLineLength)
+  ) + 1;
+  for (let i = 0; i < cardGroupD.length; i++) {
+    const targetedCard = cardGroupD[i];
+    const targetedZone = document.getElementById(`zone${FirstPlaceOfCardGroupD + i}`);
+    moveCard(targetedCard, targetedZone);
+  }
+})
+</code>
+</pre>
+</body>
+</html>
