@@ -1,3 +1,14 @@
+const message = `
+2025.03.28更新
+遊戯王ソリティアツールが新しくなりました！。新ページに遷移します。
+使い方は下記noteをご覧ください。
+【遊戯王】ソリティア簡易作成ツールを作ってみました
+（https://note.com/mirayugioh/n/n1081ba18fabe）
+`
+alert(message);
+window.location.replace('https://mirayugioh.github.io/yugiohSolitaireTool/');
+ 
+
 //20240112
 //APIキー
 const apiKey = 'あ'; // ★APIキーを設定する
